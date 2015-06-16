@@ -48,6 +48,12 @@ namespace IPC2Practica1
             vis.Show();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form5 vis = new Form5();
+            vis.Show();
+        }
+
        
 
         

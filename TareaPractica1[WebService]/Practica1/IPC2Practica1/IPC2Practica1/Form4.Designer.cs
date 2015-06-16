@@ -73,6 +73,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::IPC2Practica1.Properties.Resources.busqueda;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(529, 261);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);

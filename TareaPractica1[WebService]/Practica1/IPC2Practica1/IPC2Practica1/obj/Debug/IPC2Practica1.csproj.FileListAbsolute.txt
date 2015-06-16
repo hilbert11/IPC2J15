@@ -13,3 +13,13 @@ C:\Users\Entrar Aqui\Desktop\USAC\5to semestre\IPC2 Vacaciones\Projects\Practica
 C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\bin\Debug\IPC2Practica1.exe.config
 C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.exe
 C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.pdb
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\bin\Debug\IPC2Practica1.exe
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\bin\Debug\IPC2Practica1.pdb
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.csprojResolveAssemblyReference.cache
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Form1.resources
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Form2.resources
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Form3.resources
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Form4.resources
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Properties.Resources.resources
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.csproj.GenerateResource.Cache
+C:\Users\Entrar Aqui\Desktop\IPC2J15\TareaPractica1[WebService]\Practica1\IPC2Practica1\IPC2Practica1\obj\Debug\IPC2Practica1.Form5.resources
