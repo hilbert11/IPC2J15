@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace IPC2Practica1
+{
+    public partial class Form3 : Form
+    {
+        ServicioWebCliente.ServicioWebSoapClient servicio = new ServicioWebCliente.ServicioWebSoapClient();
+        public Form3()
+        {
+            InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 hola = new Form1();
+            hola.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String Tabla = "Libro";
+            String Campos = "Nombre, No_existentes, No_paginas, Tema, Autor, Disponibles, Prestados, Reservados";
+            String Valores = "'" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox2.Text + "','" + 0 + "','" + 0 + "'";
+
+            this.textBox1.Text = "";
+            this.textBox2.Text = "";
+            this.textBox3.Text = "";
+            this.textBox4.Text = "";
+            this.textBox5.Text = "";
+
+
+            if (servicio.Registrar(Tabla, Campos, Valores))
+            {
+
+                MessageBox.Show("Libro creado");
+            }
+            else
+            {
+                MessageBox.Show("Hay Error :(");
+
+            }
+        }
+    }
+}
