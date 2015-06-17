@@ -27,9 +27,9 @@ namespace IPC2Fase2QE.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4767/Service1.asmx")]
-        public string IPC2Fase2QE_ServiceReference1_Service1 {
+        public string IPC2Fase2QE_ServicioReferencia_Service1 {
             get {
-                return ((string)(this["IPC2Fase2QE_ServiceReference1_Service1"]));
+                return ((string)(this["IPC2Fase2QE_ServicioReferencia_Service1"]));
             }
         }
     }

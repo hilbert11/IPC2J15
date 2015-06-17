@@ -155,6 +155,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Style1.css" />
+    <Content Include="Content\Style2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -200,17 +202,19 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <None Include="Web References\ServiceReference1\Reference.map">
+    <Content Include="Web References\ServicioReferencia\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ServiceReference1\Service1.disco" />
+    </Content>
+    <None Include="Web References\ServicioReferencia\Service1.disco" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
+    <Content Include="Bundle.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <None Include="Web References\ServiceReference1\Service1.wsdl" />
+    <None Include="Web References\ServicioReferencia\Service1.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -221,30 +225,35 @@
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
@@ -292,6 +301,7 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -299,11 +309,12 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Web References\ServiceReference1\Reference.cs">
+    <Compile Include="Web References\ServicioReferencia\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -321,14 +332,14 @@
   <ItemGroup>
     <WebReferenceUrl Include="http://localhost:4767/Service1.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ServiceReference1\</RelPath>
+      <RelPath>Web References\ServicioReferencia\</RelPath>
       <UpdateFromURL>http://localhost:4767/Service1.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>IPC2Fase2QE_ServiceReference1_Service1</CachedSettingsPropName>
+      <CachedSettingsPropName>IPC2Fase2QE_ServicioReferencia_Service1</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
