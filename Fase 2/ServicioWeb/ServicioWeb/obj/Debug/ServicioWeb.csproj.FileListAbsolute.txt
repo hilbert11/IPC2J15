@@ -4,3 +4,9 @@ C:\Users\Entrar Aqui\Desktop\USAC\5to semestre\IPC2 Vacaciones\Projects\Servicio
 C:\Users\Entrar Aqui\Desktop\USAC\5to semestre\IPC2 Vacaciones\Projects\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.csprojResolveAssemblyReference.cache
 C:\Users\Entrar Aqui\Desktop\USAC\5to semestre\IPC2 Vacaciones\Projects\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.dll
 C:\Users\Entrar Aqui\Desktop\USAC\5to semestre\IPC2 Vacaciones\Projects\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.pdb
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\bin\ServicioWeb.dll.config
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\bin\ServicioWeb.dll
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\bin\ServicioWeb.pdb
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.csprojResolveAssemblyReference.cache
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.dll
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.pdb

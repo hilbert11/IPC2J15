@@ -2,16 +2,6 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="conectarServidor">
         <s:complexType />
       </s:element>
@@ -38,14 +28,82 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="existecliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeclienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="existeclienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginEmpleadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
   <wsdl:message name="conectarServidorSoapIn">
     <wsdl:part name="parameters" element="tns:conectarServidor" />
   </wsdl:message>
@@ -58,11 +116,37 @@
   <wsdl:message name="RegistrarSoapOut">
     <wsdl:part name="parameters" element="tns:RegistrarResponse" />
   </wsdl:message>
+  <wsdl:message name="existeclienteSoapIn">
+    <wsdl:part name="parameters" element="tns:existecliente" />
+  </wsdl:message>
+  <wsdl:message name="existeclienteSoapOut">
+    <wsdl:part name="parameters" element="tns:existeclienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginCliente" />
+  </wsdl:message>
+  <wsdl:message name="LoginClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombre" />
+  </wsdl:message>
+  <wsdl:message name="getNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellido" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="LoginEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginEmpleadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="conectarServidor">
       <wsdl:input message="tns:conectarServidorSoapIn" />
       <wsdl:output message="tns:conectarServidorSoapOut" />
@@ -71,18 +155,29 @@
       <wsdl:input message="tns:RegistrarSoapIn" />
       <wsdl:output message="tns:RegistrarSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <wsdl:input message="tns:existeclienteSoapIn" />
+      <wsdl:output message="tns:existeclienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <wsdl:input message="tns:LoginClienteSoapIn" />
+      <wsdl:output message="tns:LoginClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <wsdl:input message="tns:getNombreSoapIn" />
+      <wsdl:output message="tns:getNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <wsdl:input message="tns:getApellidoSoapIn" />
+      <wsdl:output message="tns:getApellidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <wsdl:input message="tns:LoginEmpleadoSoapIn" />
+      <wsdl:output message="tns:LoginEmpleadoSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="conectarServidor">
       <soap:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
       <wsdl:input>
@@ -101,18 +196,54 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <soap:operation soapAction="http://tempuri.org/existecliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <soap:operation soapAction="http://tempuri.org/LoginCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap:operation soapAction="http://tempuri.org/getNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <soap:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <soap:operation soapAction="http://tempuri.org/LoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="conectarServidor">
       <soap12:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
       <wsdl:input>
@@ -124,6 +255,51 @@
     </wsdl:operation>
     <wsdl:operation name="Registrar">
       <soap12:operation soapAction="http://tempuri.org/Registrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <soap12:operation soapAction="http://tempuri.org/existecliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <soap12:operation soapAction="http://tempuri.org/LoginCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap12:operation soapAction="http://tempuri.org/getNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <soap12:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/LoginEmpleado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

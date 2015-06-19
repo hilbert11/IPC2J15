@@ -29,11 +29,19 @@ namespace IPC2Fase2QE.ServicioReferencia {
     [System.Web.Services.WebServiceBindingAttribute(Name="Service1Soap", Namespace="http://tempuri.org/")]
     public partial class Service1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
-        
         private System.Threading.SendOrPostCallback conectarServidorOperationCompleted;
         
         private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback existeclienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback LoginClienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getNombreOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getApellidoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback LoginEmpleadoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -74,40 +82,25 @@ namespace IPC2Fase2QE.ServicioReferencia {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
-        
-        /// <remarks/>
         public event conectarServidorCompletedEventHandler conectarServidorCompleted;
         
         /// <remarks/>
         public event RegistrarCompletedEventHandler RegistrarCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
-            return ((string)(results[0]));
-        }
+        public event existeclienteCompletedEventHandler existeclienteCompleted;
         
         /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
-        }
+        public event LoginClienteCompletedEventHandler LoginClienteCompleted;
         
         /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
-            }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
-        }
+        public event getNombreCompletedEventHandler getNombreCompleted;
         
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+        /// <remarks/>
+        public event getApellidoCompletedEventHandler getApellidoCompleted;
+        
+        /// <remarks/>
+        public event LoginEmpleadoCompletedEventHandler LoginEmpleadoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/conectarServidor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -170,6 +163,159 @@ namespace IPC2Fase2QE.ServicioReferencia {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/existecliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool existecliente(string user) {
+            object[] results = this.Invoke("existecliente", new object[] {
+                        user});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void existeclienteAsync(string user) {
+            this.existeclienteAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void existeclienteAsync(string user, object userState) {
+            if ((this.existeclienteOperationCompleted == null)) {
+                this.existeclienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnexisteclienteOperationCompleted);
+            }
+            this.InvokeAsync("existecliente", new object[] {
+                        user}, this.existeclienteOperationCompleted, userState);
+        }
+        
+        private void OnexisteclienteOperationCompleted(object arg) {
+            if ((this.existeclienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.existeclienteCompleted(this, new existeclienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LoginCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool LoginCliente(string user, string contraseña, string rol) {
+            object[] results = this.Invoke("LoginCliente", new object[] {
+                        user,
+                        contraseña,
+                        rol});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LoginClienteAsync(string user, string contraseña, string rol) {
+            this.LoginClienteAsync(user, contraseña, rol, null);
+        }
+        
+        /// <remarks/>
+        public void LoginClienteAsync(string user, string contraseña, string rol, object userState) {
+            if ((this.LoginClienteOperationCompleted == null)) {
+                this.LoginClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLoginClienteOperationCompleted);
+            }
+            this.InvokeAsync("LoginCliente", new object[] {
+                        user,
+                        contraseña,
+                        rol}, this.LoginClienteOperationCompleted, userState);
+        }
+        
+        private void OnLoginClienteOperationCompleted(object arg) {
+            if ((this.LoginClienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LoginClienteCompleted(this, new LoginClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getNombre", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getNombre(string user) {
+            object[] results = this.Invoke("getNombre", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getNombreAsync(string user) {
+            this.getNombreAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getNombreAsync(string user, object userState) {
+            if ((this.getNombreOperationCompleted == null)) {
+                this.getNombreOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetNombreOperationCompleted);
+            }
+            this.InvokeAsync("getNombre", new object[] {
+                        user}, this.getNombreOperationCompleted, userState);
+        }
+        
+        private void OngetNombreOperationCompleted(object arg) {
+            if ((this.getNombreCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getNombreCompleted(this, new getNombreCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getApellido", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getApellido(string user) {
+            object[] results = this.Invoke("getApellido", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getApellidoAsync(string user) {
+            this.getApellidoAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getApellidoAsync(string user, object userState) {
+            if ((this.getApellidoOperationCompleted == null)) {
+                this.getApellidoOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetApellidoOperationCompleted);
+            }
+            this.InvokeAsync("getApellido", new object[] {
+                        user}, this.getApellidoOperationCompleted, userState);
+        }
+        
+        private void OngetApellidoOperationCompleted(object arg) {
+            if ((this.getApellidoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getApellidoCompleted(this, new getApellidoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LoginEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int LoginEmpleado(string usuario, string contraseña, string rol) {
+            object[] results = this.Invoke("LoginEmpleado", new object[] {
+                        usuario,
+                        contraseña,
+                        rol});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LoginEmpleadoAsync(string usuario, string contraseña, string rol) {
+            this.LoginEmpleadoAsync(usuario, contraseña, rol, null);
+        }
+        
+        /// <remarks/>
+        public void LoginEmpleadoAsync(string usuario, string contraseña, string rol, object userState) {
+            if ((this.LoginEmpleadoOperationCompleted == null)) {
+                this.LoginEmpleadoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLoginEmpleadoOperationCompleted);
+            }
+            this.InvokeAsync("LoginEmpleado", new object[] {
+                        usuario,
+                        contraseña,
+                        rol}, this.LoginEmpleadoOperationCompleted, userState);
+        }
+        
+        private void OnLoginEmpleadoOperationCompleted(object arg) {
+            if ((this.LoginEmpleadoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LoginEmpleadoCompleted(this, new LoginEmpleadoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -185,32 +331,6 @@ namespace IPC2Fase2QE.ServicioReferencia {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
         }
     }
     
@@ -262,6 +382,136 @@ namespace IPC2Fase2QE.ServicioReferencia {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void existeclienteCompletedEventHandler(object sender, existeclienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class existeclienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal existeclienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void LoginClienteCompletedEventHandler(object sender, LoginClienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LoginClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LoginClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getNombreCompletedEventHandler(object sender, getNombreCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getNombreCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getNombreCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getApellidoCompletedEventHandler(object sender, getApellidoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getApellidoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getApellidoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void LoginEmpleadoCompletedEventHandler(object sender, LoginEmpleadoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LoginEmpleadoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LoginEmpleadoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
