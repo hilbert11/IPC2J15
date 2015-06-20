@@ -253,7 +253,7 @@ namespace ServicioWeb
             catch (Exception e)
             {
                 respuesta = false;
-                MostrarError = "Erro: " + e.Message.ToString();
+                MostrarError = "Error: " + e.Message.ToString();
             }
             finally
             {
@@ -261,6 +261,117 @@ namespace ServicioWeb
             }
             return contador;
         }
+        //Obtiene el nombre del apellido
+        [WebMethod]
+        public string getNombreEmp(string user)
+        {
+            DataSet ds = new DataSet();
+            string nombre = "";
+            try
+            {
+                string instruccion = "SELECT Nombre FROM Empleados WHERE Usuario='" + user + "'";
+                SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+                if (conectarServidor())
+                {
+                    adap1.Fill(ds, "Empleados");
+                    nombre = ds.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    nombre = "Sin conexion";
+                }
+            }
+            catch (Exception ex)
+            {
+                nombre = ex.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return nombre;
+        }
+        //Obtiene el apellido del Empleado
+        [WebMethod]
+        public string getApellidoEmp(string user)
+        {
+            DataSet ds = new DataSet();
+            string nombre = "";
+            try
+            {
+                string instruccion = "SELECT Apellido FROM Empleados WHERE Usuario='" + user + "'";
+                SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+                if (conectarServidor())
+                {
+                    adap1.Fill(ds, "Empleados");
+                    nombre = ds.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    nombre = "Sin conexion";
+                }
+            }
+            catch (Exception ex)
+            {
+                nombre = ex.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return nombre;
+        }
+//Cargar archivo CSV
+//nombretabla = nombre de nuestra tabla
+//'ruta/del/archivo' = Donde esté ubicado nuestro archivo csv.
+//firstrow=2 = Este parámetro es opcional. Indicamos que empieze a importar a partir de la segunda línea. Se suele utilizar porque normalmente la primera columna indica el nombre de la columna.
+//FIELDTERMINATOR = delimitador de campos
+//ROWTERMINATOR  delimitador de registro
+    [WebMethod]
+        public bool CargarCSVImpuesto(string path)
+        {
+            bool respuesta = false;
+            try
+            {
+                SqlCommand verificar = new SqlCommand();
+                verificar.Connection = conexion;
+                verificar.CommandText = "BULK INSERT dbo.Impuesto FROM '" + path + "' WITH (FIELDTERMINATOR = ',', ROWTERMINATOR = '\n' )";
+                
+                conectarServidor(); 
+                
+                if (conectarServidor())
+                {
+                    if (verificar.ExecuteNonQuery() == 1)
+                    {
+                        respuesta = true;
+                    }
+                        
+                    else
+                    {
+                        respuesta = false;
+                    }
+                        
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                mostrarError = "Error" + ex.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
+        }
+
+        ////El Metodo para agregar las filas estara en una clase Ayuda del Proyecto
+
     //    //Verifica si existe el empleado y el rol
     //    [WebMethod]
     //    public bool existeEmpleado(string user)
@@ -331,64 +442,6 @@ namespace ServicioWeb
 
     //        return respuesta;
     //    }
-    //[WebMethod]
-    //    public string getNombreEmp(string user)
-    //    {
-    //        DataSet ds = new DataSet();
-    //        string nombre = "";
-    //        try
-    //        {
-    //            string instruccion = "SELECT Nombre FROM Empleados WHERE Usuario='" + user + "'";
-    //            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
-    //            if (conectarServidor())
-    //            {
-    //                adap1.Fill(ds, "Empleados");
-    //                nombre = ds.Tables[0].Rows[0][0].ToString();
-    //            }
-    //            else
-    //            {
-    //                nombre = "Sin conexion";
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            nombre = ex.ToString();
-    //        }
-    //        finally
-    //        {
-    //            conexion.Close();
-    //        }
-    //        return nombre;
-    //    }
-
-    //[WebMethod]
-    //public string getApellidoEmp(string user)
-    //{
-    //    DataSet ds = new DataSet();
-    //    string nombre = "";
-    //    try
-    //    {
-    //        string instruccion = "SELECT Apellido FROM Empleados WHERE Usuario='" + user + "'";
-    //        SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
-    //        if (conectarServidor())
-    //        {
-    //            adap1.Fill(ds, "Empleados");
-    //            nombre = ds.Tables[0].Rows[0][0].ToString();
-    //        }
-    //        else
-    //        {
-    //            nombre = "Sin conexion";
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        nombre = ex.ToString();
-    //    }
-    //    finally
-    //    {
-    //        conexion.Close();
-    //    }
-    //    return nombre;
-    //}
+        
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 //Libreria para variables de sesion
 using System.Web.SessionState;
 
-namespace IPC2Fase2QE.Account
+namespace IPC2Fase2QE
 {
     public partial class Login : Page
     {
@@ -65,7 +65,8 @@ namespace IPC2Fase2QE.Account
 
                 if (cq.LoginEmpleado(usuario, contraseña, rol) == 1)
                 {
-                    Session["Empleado"] = usuario;
+                    Session["NombreEmpleado"] = cq.getNombreEmp(UserName.Text);
+                    Session["ApellidoEmpleado"] = cq.getApellidoEmp(UserName.Text);
                     Response.Redirect("Contact.aspx");
                     MessageBox.Show("Hola Emppleado :)");
 
@@ -82,7 +83,8 @@ namespace IPC2Fase2QE.Account
 
                 if (cq.LoginEmpleado(usuario, contraseña, rol) == 1)
                 {
-                    Session["Administrador"] = usuario;
+                    Session["NombreAdmin"] = cq.getNombreEmp(UserName.Text);
+                    Session["ApellidoAdmin"] = cq.getApellidoEmp(UserName.Text);
                     Response.Redirect("Default.aspx");
                     MessageBox.Show("Eres Administrador :D");
                 }

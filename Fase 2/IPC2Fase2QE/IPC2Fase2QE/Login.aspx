@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="IPC2Fase2QE.Account.Login" Async="true" %>
+﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="IPC2Fase2QE.Login" Async="true" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -35,7 +35,7 @@
                         <br />
                             <asp:Label ID="Label8" runat="server" Text="Contraseña" CssClass="col-md-2 control-label"></asp:Label>
                         <div class="col-md-5">
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:DropDownList ID="DropDownList1" runat="server" ForeColor="Black">
                             <asp:ListItem>Cliente</asp:ListItem>
                             <asp:ListItem>Administrador</asp:ListItem>
                             <asp:ListItem>Empleado</asp:ListItem>

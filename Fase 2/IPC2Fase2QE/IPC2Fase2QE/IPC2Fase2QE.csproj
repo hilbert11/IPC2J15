@@ -147,7 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CargarCSVImpuesto.aspx" />
     <Content Include="CrearEmpleado.aspx" />
+    <Content Include="CrearSede.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
@@ -225,12 +227,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargarCSVImpuesto.aspx.cs">
+      <DependentUpon>CargarCSVImpuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarCSVImpuesto.aspx.designer.cs">
+      <DependentUpon>CargarCSVImpuesto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CrearEmpleado.aspx.cs">
       <DependentUpon>CrearEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CrearEmpleado.aspx.designer.cs">
       <DependentUpon>CrearEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearSede.aspx.cs">
+      <DependentUpon>CrearSede.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearSede.aspx.designer.cs">
+      <DependentUpon>CrearSede.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

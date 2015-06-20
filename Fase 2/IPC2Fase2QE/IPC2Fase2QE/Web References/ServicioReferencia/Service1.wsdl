@@ -102,6 +102,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getNombreEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreEmpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoEmpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarCSVImpuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="conectarServidorSoapIn">
@@ -146,6 +188,24 @@
   <wsdl:message name="LoginEmpleadoSoapOut">
     <wsdl:part name="parameters" element="tns:LoginEmpleadoResponse" />
   </wsdl:message>
+  <wsdl:message name="getNombreEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombreEmp" />
+  </wsdl:message>
+  <wsdl:message name="getNombreEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellidoEmp" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuesto" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuestoResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="conectarServidor">
       <wsdl:input message="tns:conectarServidorSoapIn" />
@@ -174,6 +234,18 @@
     <wsdl:operation name="LoginEmpleado">
       <wsdl:input message="tns:LoginEmpleadoSoapIn" />
       <wsdl:output message="tns:LoginEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <wsdl:input message="tns:getNombreEmpSoapIn" />
+      <wsdl:output message="tns:getNombreEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <wsdl:input message="tns:getApellidoEmpSoapIn" />
+      <wsdl:output message="tns:getApellidoEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <wsdl:input message="tns:CargarCSVImpuestoSoapIn" />
+      <wsdl:output message="tns:CargarCSVImpuestoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
@@ -241,6 +313,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <soap:operation soapAction="http://tempuri.org/getNombreEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <soap:operation soapAction="http://tempuri.org/getApellidoEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -300,6 +399,33 @@
     </wsdl:operation>
     <wsdl:operation name="LoginEmpleado">
       <soap12:operation soapAction="http://tempuri.org/LoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <soap12:operation soapAction="http://tempuri.org/getNombreEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <soap12:operation soapAction="http://tempuri.org/getApellidoEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap12:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
