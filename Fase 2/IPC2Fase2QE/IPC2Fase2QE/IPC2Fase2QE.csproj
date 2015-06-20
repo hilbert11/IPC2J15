@@ -148,6 +148,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="CargarCSVImpuesto.aspx" />
+    <Content Include="CrearDirector.aspx" />
     <Content Include="CrearEmpleado.aspx" />
     <Content Include="CrearSede.aspx" />
     <Content Include="Login.aspx" />
@@ -162,6 +163,7 @@
     <Content Include="Content\Style2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ModuloClientes.aspx" />
+    <Content Include="ModuloDirector.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -233,6 +235,13 @@
     </Compile>
     <Compile Include="CargarCSVImpuesto.aspx.designer.cs">
       <DependentUpon>CargarCSVImpuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearDirector.aspx.cs">
+      <DependentUpon>CrearDirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearDirector.aspx.designer.cs">
+      <DependentUpon>CrearDirector.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearEmpleado.aspx.cs">
       <DependentUpon>CrearEmpleado.aspx</DependentUpon>
@@ -310,6 +319,13 @@
     </Compile>
     <Compile Include="ModuloClientes.aspx.designer.cs">
       <DependentUpon>ModuloClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloDirector.aspx.cs">
+      <DependentUpon>ModuloDirector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloDirector.aspx.designer.cs">
+      <DependentUpon>ModuloDirector.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

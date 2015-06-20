@@ -28,5 +28,34 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
+    <p style="height: 327px">
+
+        <table style="width:100%;">
+            <tr>
+                <td class="modal-sm" style="width: 214px">
+                    <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Obtener" />
+                </td>
+                <td style="width: 265px">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 214px">
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </td>
+                <td style="width: 265px">
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 214px">&nbsp;</td>
+                <td style="width: 265px">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+    </p>
 </asp:Content>
 

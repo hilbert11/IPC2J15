@@ -94,6 +94,28 @@ namespace IPC2Fase2QE
                 }
 
             }
+            else if (cq.existeDirector(UserName.Text) == true)
+            {
+
+                if (cq.LoginDirector(UserName.Text, Password.Text, DropDownList1.Text) == true)
+                {
+                    Session["UsuarioDirector"] = cq.getNombreDirector(UserName.Text);
+                    Session["ApellidoDirector"] = cq.getApellidoDiretor(UserName.Text);
+                    // Session["tipo"] = 1;
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Encontro Usuario cliente');</script>");
+
+                    Response.Redirect("ModuloDirector.aspx");
+                    MessageBox.Show("Inicio correcta :D");
+
+
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Contraseña Incorrecta Director');</script>");
+                    //MessageBox.Show("Error :(");
+                }
+            }
             //else if (cq.existeEmpleado(DropDownList1.Text)==true)
             //{
             //    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Correo Empleado Encontrado');</script>");

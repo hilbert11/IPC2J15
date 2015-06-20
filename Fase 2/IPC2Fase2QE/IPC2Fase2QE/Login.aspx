@@ -39,6 +39,7 @@
                             <asp:ListItem>Cliente</asp:ListItem>
                             <asp:ListItem>Administrador</asp:ListItem>
                             <asp:ListItem>Empleado</asp:ListItem>
+                                <asp:ListItem>Director</asp:ListItem>
                         </asp:DropDownList>
                         </div>
                     </div>

@@ -31,6 +31,10 @@ namespace IPC2Fase2QE.ServicioReferencia {
         
         private System.Threading.SendOrPostCallback conectarServidorOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SeleccionarSursalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VerificarDepartamentoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
         
         private System.Threading.SendOrPostCallback existeclienteOperationCompleted;
@@ -48,6 +52,14 @@ namespace IPC2Fase2QE.ServicioReferencia {
         private System.Threading.SendOrPostCallback getApellidoEmpOperationCompleted;
         
         private System.Threading.SendOrPostCallback CargarCSVImpuestoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback existeDirectorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback LoginDirectorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getNombreDirectorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getApellidoDiretorOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -91,6 +103,12 @@ namespace IPC2Fase2QE.ServicioReferencia {
         public event conectarServidorCompletedEventHandler conectarServidorCompleted;
         
         /// <remarks/>
+        public event SeleccionarSursalCompletedEventHandler SeleccionarSursalCompleted;
+        
+        /// <remarks/>
+        public event VerificarDepartamentoCompletedEventHandler VerificarDepartamentoCompleted;
+        
+        /// <remarks/>
         public event RegistrarCompletedEventHandler RegistrarCompleted;
         
         /// <remarks/>
@@ -118,6 +136,18 @@ namespace IPC2Fase2QE.ServicioReferencia {
         public event CargarCSVImpuestoCompletedEventHandler CargarCSVImpuestoCompleted;
         
         /// <remarks/>
+        public event existeDirectorCompletedEventHandler existeDirectorCompleted;
+        
+        /// <remarks/>
+        public event LoginDirectorCompletedEventHandler LoginDirectorCompleted;
+        
+        /// <remarks/>
+        public event getNombreDirectorCompletedEventHandler getNombreDirectorCompleted;
+        
+        /// <remarks/>
+        public event getApellidoDiretorCompletedEventHandler getApellidoDiretorCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/conectarServidor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool conectarServidor() {
             object[] results = this.Invoke("conectarServidor", new object[0]);
@@ -141,6 +171,66 @@ namespace IPC2Fase2QE.ServicioReferencia {
             if ((this.conectarServidorCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.conectarServidorCompleted(this, new conectarServidorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SeleccionarSursal", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int SeleccionarSursal(string nombresucur) {
+            object[] results = this.Invoke("SeleccionarSursal", new object[] {
+                        nombresucur});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SeleccionarSursalAsync(string nombresucur) {
+            this.SeleccionarSursalAsync(nombresucur, null);
+        }
+        
+        /// <remarks/>
+        public void SeleccionarSursalAsync(string nombresucur, object userState) {
+            if ((this.SeleccionarSursalOperationCompleted == null)) {
+                this.SeleccionarSursalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSeleccionarSursalOperationCompleted);
+            }
+            this.InvokeAsync("SeleccionarSursal", new object[] {
+                        nombresucur}, this.SeleccionarSursalOperationCompleted, userState);
+        }
+        
+        private void OnSeleccionarSursalOperationCompleted(object arg) {
+            if ((this.SeleccionarSursalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SeleccionarSursalCompleted(this, new SeleccionarSursalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/VerificarDepartamento", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int VerificarDepartamento(string nombredepa, int sucur) {
+            object[] results = this.Invoke("VerificarDepartamento", new object[] {
+                        nombredepa,
+                        sucur});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void VerificarDepartamentoAsync(string nombredepa, int sucur) {
+            this.VerificarDepartamentoAsync(nombredepa, sucur, null);
+        }
+        
+        /// <remarks/>
+        public void VerificarDepartamentoAsync(string nombredepa, int sucur, object userState) {
+            if ((this.VerificarDepartamentoOperationCompleted == null)) {
+                this.VerificarDepartamentoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVerificarDepartamentoOperationCompleted);
+            }
+            this.InvokeAsync("VerificarDepartamento", new object[] {
+                        nombredepa,
+                        sucur}, this.VerificarDepartamentoOperationCompleted, userState);
+        }
+        
+        private void OnVerificarDepartamentoOperationCompleted(object arg) {
+            if ((this.VerificarDepartamentoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VerificarDepartamentoCompleted(this, new VerificarDepartamentoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -418,6 +508,126 @@ namespace IPC2Fase2QE.ServicioReferencia {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/existeDirector", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool existeDirector(string user) {
+            object[] results = this.Invoke("existeDirector", new object[] {
+                        user});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void existeDirectorAsync(string user) {
+            this.existeDirectorAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void existeDirectorAsync(string user, object userState) {
+            if ((this.existeDirectorOperationCompleted == null)) {
+                this.existeDirectorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnexisteDirectorOperationCompleted);
+            }
+            this.InvokeAsync("existeDirector", new object[] {
+                        user}, this.existeDirectorOperationCompleted, userState);
+        }
+        
+        private void OnexisteDirectorOperationCompleted(object arg) {
+            if ((this.existeDirectorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.existeDirectorCompleted(this, new existeDirectorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/LoginDirector", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool LoginDirector(string user, string contraseña, string rol) {
+            object[] results = this.Invoke("LoginDirector", new object[] {
+                        user,
+                        contraseña,
+                        rol});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LoginDirectorAsync(string user, string contraseña, string rol) {
+            this.LoginDirectorAsync(user, contraseña, rol, null);
+        }
+        
+        /// <remarks/>
+        public void LoginDirectorAsync(string user, string contraseña, string rol, object userState) {
+            if ((this.LoginDirectorOperationCompleted == null)) {
+                this.LoginDirectorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLoginDirectorOperationCompleted);
+            }
+            this.InvokeAsync("LoginDirector", new object[] {
+                        user,
+                        contraseña,
+                        rol}, this.LoginDirectorOperationCompleted, userState);
+        }
+        
+        private void OnLoginDirectorOperationCompleted(object arg) {
+            if ((this.LoginDirectorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LoginDirectorCompleted(this, new LoginDirectorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getNombreDirector", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getNombreDirector(string user) {
+            object[] results = this.Invoke("getNombreDirector", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getNombreDirectorAsync(string user) {
+            this.getNombreDirectorAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getNombreDirectorAsync(string user, object userState) {
+            if ((this.getNombreDirectorOperationCompleted == null)) {
+                this.getNombreDirectorOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetNombreDirectorOperationCompleted);
+            }
+            this.InvokeAsync("getNombreDirector", new object[] {
+                        user}, this.getNombreDirectorOperationCompleted, userState);
+        }
+        
+        private void OngetNombreDirectorOperationCompleted(object arg) {
+            if ((this.getNombreDirectorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getNombreDirectorCompleted(this, new getNombreDirectorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getApellidoDiretor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getApellidoDiretor(string user) {
+            object[] results = this.Invoke("getApellidoDiretor", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getApellidoDiretorAsync(string user) {
+            this.getApellidoDiretorAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getApellidoDiretorAsync(string user, object userState) {
+            if ((this.getApellidoDiretorOperationCompleted == null)) {
+                this.getApellidoDiretorOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetApellidoDiretorOperationCompleted);
+            }
+            this.InvokeAsync("getApellidoDiretor", new object[] {
+                        user}, this.getApellidoDiretorOperationCompleted, userState);
+        }
+        
+        private void OngetApellidoDiretorOperationCompleted(object arg) {
+            if ((this.getApellidoDiretorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getApellidoDiretorCompleted(this, new getApellidoDiretorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -458,6 +668,58 @@ namespace IPC2Fase2QE.ServicioReferencia {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void SeleccionarSursalCompletedEventHandler(object sender, SeleccionarSursalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SeleccionarSursalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SeleccionarSursalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void VerificarDepartamentoCompletedEventHandler(object sender, VerificarDepartamentoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VerificarDepartamentoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal VerificarDepartamentoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -692,6 +954,110 @@ namespace IPC2Fase2QE.ServicioReferencia {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void existeDirectorCompletedEventHandler(object sender, existeDirectorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class existeDirectorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal existeDirectorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void LoginDirectorCompletedEventHandler(object sender, LoginDirectorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LoginDirectorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LoginDirectorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getNombreDirectorCompletedEventHandler(object sender, getNombreDirectorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getNombreDirectorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getNombreDirectorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getApellidoDiretorCompletedEventHandler(object sender, getApellidoDiretorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getApellidoDiretorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getApellidoDiretorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

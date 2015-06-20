@@ -29,10 +29,7 @@ namespace IPC2Fase2QE
                 {
                     FileUpload1.SaveAs(MapPath(FileUpload1.FileName));
 
-
                     Label1.Text = FileUpload1.FileName + " cargado exitosamente";
-
-                    
 
                     lblOculto.Text = MapPath(FileUpload1.FileName);
                 }
@@ -181,8 +178,17 @@ namespace IPC2Fase2QE
             }
         }
 
-  
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            //DataTable dt = new DataTable();
+            //GridView1.DataSource = dt;
+            //GridView1.DataBind();
+            //GridViewRow row = GridView1.Rows[0];
+            //TextBox1.Text = Convert.ToString(row.Cells[0].Text);
+            //TextBox2.Text = Convert.ToString(row.Cells[1].Text);
+            //TextBox3.Text = Convert.ToString(row.Cells[2].Text);
 
+        }
 
     }
 }

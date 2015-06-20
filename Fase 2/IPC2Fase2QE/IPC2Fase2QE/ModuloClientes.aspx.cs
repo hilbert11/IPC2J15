@@ -26,116 +26,119 @@ namespace IPC2Fase2QE
         protected void Button5_Click(object sender, EventArgs e)
         {
 
-            float costinicial, pesopaquete=0, tot, calculo1, calculo2, calculo3;
 
-            SqlConnection conectar = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
-            String instruccion = ("Select * From Sede where Nombre_sede'" + DropPeso.Text + "'");
-            SqlCommand cmd =  new SqlCommand(instruccion, conectar);
-            conectar.Open();
-            SqlDataReader leer = cmd.ExecuteReader();
+            float costoinicio, peso, total, C1, C2, C3;
+
+
+
+            //Verificación los campos de cobros
+
+            SqlConnection con2 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
+            String nombre = "Select * from Sede where Nombre_sede='" + DropSede.Text + "' ";
+            SqlCommand comando = new SqlCommand(nombre, con2);
+            con2.Open();
+            SqlDataReader leer = comando.ExecuteReader();
             if (leer.Read() == true)
             {
+
                 comision = float.Parse(leer["Comision"].ToString());
                 peso = float.Parse(leer["Peso"].ToString());
 
-            }
-            else
-            {
-                MessageBox.Show(":D");
-            }
-            conectar.Close();
 
-            //Para sacar la categoria de la tabla impuesto
-            SqlConnection conectar2 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
-            String instruccion2 = ("Select * From Impuesto where Categoria'" + DropCategoria.Text + "'");
-            SqlCommand cmd2 = new SqlCommand(instruccion2, conectar2);
-            conectar2.Open();
-            SqlDataReader leer2 = cmd2.ExecuteReader();
-            if (leer2.Read() == true)
-            {
-                impuesto = float.Parse(leer2["Impuesto"].ToString());
+
 
             }
             else
             {
-                MessageBox.Show(":D");
+                MessageBox.Show("dddd");
             }
-            conectar2.Close();
+            con2.Close();
 
-            //Aqui empieza la otra parte de la magia
-            costinicial = float.Parse(TextBox4.Text);
-            peso = float.Parse(TextBox2.Text);
-
-            if (DropCategoria.Text == "Accesorio de Telefonia")
+            // verifica campos de impuestos
+            SqlConnection con21 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
+            String nombre1 = "Select * from Impuesto where Categoria='" + DropCategoria.Text + "' ";
+            SqlCommand comando1 = new SqlCommand(nombre1, con21);
+            con21.Open();
+            SqlDataReader leer1 = comando1.ExecuteReader();
+            if (leer1.Read() == true)
             {
 
-
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
-            }
-            else if (DropCategoria.Text == "Accesorio Deportivo")
-            {
-
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
+                impuesto = float.Parse(leer1["ImpuestoPaquete"].ToString());
 
 
             }
-            else if (DropCategoria.Text == "Articulos de Cuero")
-            {
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
-
-
-
-            }
-            else if (DropCategoria.Text == "Videocintas")
-            {
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
-
-            }
-            else if (DropCategoria.Text == "Videojuegos Blu-Ray")
-            {
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
-
-
-
-            }
-
-            else if (DropCategoria.Text == "Zapatos")
-            {
-                calculo1 = costinicial + (pesopaquete * peso);
-                calculo2 = (costinicial * ((comision / 100)));
-                calculo3 = costinicial * (impuesto / 100);
-                tot = calculo1 + calculo2 + calculo3;
-                txttotal.Text = tot.ToString();
-
-
-
-            }
-
-
             else
             {
-                txttotal.Text = "Error";
+                MessageBox.Show("dddd");
             }
+            con2.Close();
+
+
+
+
+            costoinicio = float.Parse(txtcostopaquete.Text);
+            peso = float.Parse(txtpeso.Text);
+
+            //if (DropCategoria.Text == "Accesorio de Telefonia")
+            //{
+
+
+            C1 = costoinicio + (peso * peso);
+            C2 = (costoinicio * ((comision / 100)));
+            C3 = costoinicio * (impuesto / 100);
+            total = C1 + C2 + C3;
+            txttotal.Text = total.ToString();
+
+            //}
+            //else if (DropCategoria.Text == "Videocintas")
+            //{
+
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
+
+            //}
+            //else if (DropCategoria.Text == "Articulos de Cuero")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
+
+
+            //}
+            //else if (DropCategoria.Text == "Zapatos")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
+            //}
+
+            //else if (DropCategoria.Text == "Videojuegos Blu-Ray")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
+
+
+            //}
+
+
+            //else
+            //{
+            //    txttotal.Text = "Error";
+            //}
+
+
+
+            
         }
     }
 }

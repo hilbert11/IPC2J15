@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace IPC2Fase2QE
 {
-    public partial class CrearEmpleado : System.Web.UI.Page
+    public partial class CrearDirector : System.Web.UI.Page
     {
         ServicioReferencia.Service1 conexion = new ServicioReferencia.Service1();
         protected void Page_Load(object sender, EventArgs e)
@@ -18,10 +18,9 @@ namespace IPC2Fase2QE
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int popo = conexion.VerificarDepartamento(TextBox10.Text, conexion.SeleccionarSursal(DropDownList2.Text));
-            String Tabla = "Empleados";
-            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Rol, Contraseña, Usuario, Cod_Departamento";
-            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "','" + DropDownList1.Text + "','" + popo + "'";
+            String Tabla = "Director";
+            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Usuario, Contraseña";
+            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "'";
 
             this.TextBox1.Text = "";
             this.TextBox2.Text = "";
@@ -33,7 +32,6 @@ namespace IPC2Fase2QE
             this.TextBox8.Text = "";
             this.TextBox9.Text = "";
 
-
             if (conexion.Registrar(Tabla, Campos, Valores))
             {
                 MessageBox.Show("Creado :D");
@@ -43,7 +41,7 @@ namespace IPC2Fase2QE
                 MessageBox.Show("Error :(");
             }
 
+        
         }
-
     }
 }

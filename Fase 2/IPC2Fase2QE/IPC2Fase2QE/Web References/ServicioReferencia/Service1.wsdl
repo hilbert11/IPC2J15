@@ -12,6 +12,35 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SeleccionarSursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresucur" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeleccionarSursalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombredepa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sucur" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Registrar">
         <s:complexType>
           <s:sequence>
@@ -144,6 +173,64 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="existeDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="existeDirectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginDirectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreDirectorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoDiretor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoDiretorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoDiretorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="conectarServidorSoapIn">
@@ -151,6 +238,18 @@
   </wsdl:message>
   <wsdl:message name="conectarServidorSoapOut">
     <wsdl:part name="parameters" element="tns:conectarServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSursalSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarSursal" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSursalSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarSursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarDepartamentoResponse" />
   </wsdl:message>
   <wsdl:message name="RegistrarSoapIn">
     <wsdl:part name="parameters" element="tns:Registrar" />
@@ -206,10 +305,42 @@
   <wsdl:message name="CargarCSVImpuestoSoapOut">
     <wsdl:part name="parameters" element="tns:CargarCSVImpuestoResponse" />
   </wsdl:message>
+  <wsdl:message name="existeDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:existeDirector" />
+  </wsdl:message>
+  <wsdl:message name="existeDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:existeDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginDirector" />
+  </wsdl:message>
+  <wsdl:message name="LoginDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNombreDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombreDirector" />
+  </wsdl:message>
+  <wsdl:message name="getNombreDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoDiretorSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellidoDiretor" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoDiretorSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoDiretorResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="conectarServidor">
       <wsdl:input message="tns:conectarServidorSoapIn" />
       <wsdl:output message="tns:conectarServidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <wsdl:input message="tns:SeleccionarSursalSoapIn" />
+      <wsdl:output message="tns:SeleccionarSursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <wsdl:input message="tns:VerificarDepartamentoSoapIn" />
+      <wsdl:output message="tns:VerificarDepartamentoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Registrar">
       <wsdl:input message="tns:RegistrarSoapIn" />
@@ -247,11 +378,45 @@
       <wsdl:input message="tns:CargarCSVImpuestoSoapIn" />
       <wsdl:output message="tns:CargarCSVImpuestoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <wsdl:input message="tns:existeDirectorSoapIn" />
+      <wsdl:output message="tns:existeDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <wsdl:input message="tns:LoginDirectorSoapIn" />
+      <wsdl:output message="tns:LoginDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <wsdl:input message="tns:getNombreDirectorSoapIn" />
+      <wsdl:output message="tns:getNombreDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <wsdl:input message="tns:getApellidoDiretorSoapIn" />
+      <wsdl:output message="tns:getApellidoDiretorSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="conectarServidor">
       <soap:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarSursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -340,11 +505,65 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <soap:operation soapAction="http://tempuri.org/existeDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <soap:operation soapAction="http://tempuri.org/LoginDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <soap:operation soapAction="http://tempuri.org/getNombreDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <soap:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="conectarServidor">
       <soap12:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarSursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -426,6 +645,42 @@
     </wsdl:operation>
     <wsdl:operation name="CargarCSVImpuesto">
       <soap12:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <soap12:operation soapAction="http://tempuri.org/existeDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <soap12:operation soapAction="http://tempuri.org/LoginDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <soap12:operation soapAction="http://tempuri.org/getNombreDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <soap12:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

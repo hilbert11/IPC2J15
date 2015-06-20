@@ -52,6 +52,83 @@ namespace ServicioWeb
 
             return respuesta;
         }
+        //obtiene numero de sucursal
+        [WebMethod]
+        public int SeleccionarSursal(string nombresucur)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_sucursal FROM Sucursal where Nombre_sucursal='" + nombresucur + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
+
+        //obtiene numero de departamento
+        [WebMethod]
+        public int VerificarDepartamento(string nombredepa, int sucur)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_Departamento FROM Departamento where Nombre_departamento='" + nombredepa + "' and Cod_sucursal='" + sucur + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
         //Metodo para registrar a un cliente
         [WebMethod]
         public bool Registrar(string tabla, string campos, string valor)
@@ -369,6 +446,137 @@ namespace ServicioWeb
             }
             return respuesta;
         }
+    //Verifica El director en la base de datos para hacer sesion
+    [WebMethod]
+    public bool existeDirector(string user)
+    {
+        bool respuesta = false;
+        DataSet ds = new DataSet();
+
+        try
+        {
+            string instruccion = "SELECT Usuario FROM Director WHERE Usuario= '" + user + "'";
+            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+            if (conectarServidor())
+            {
+                adap1.Fill(ds, "Director");
+                if (((string)ds.Tables[0].Rows[0][0]).Equals(user))
+                {
+                    respuesta = true;
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+
+        }
+        catch (Exception)
+        {
+            respuesta = false;
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return respuesta;
+    }
+
+    //Inicia sesion con el DIRECTOR
+    [WebMethod]
+    public bool LoginDirector(string user, string contraseña, string rol)
+    {
+        bool respuesta = false;
+        DataSet ds = new DataSet();
+        try
+        {
+            string instruccion = "SELECT  Contraseña FROM Director WHERE Contraseña = '" + contraseña + "'";
+            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+            if (conectarServidor())
+            {
+                adap1.Fill(ds, "Director");
+                if (((string)ds.Tables[0].Rows[0][0]).Equals(contraseña))
+                {
+                    respuesta = true;
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            MostrarError = "Mensaje de la exepción: " + ex.Message.ToString();
+            respuesta = false;
+        }
+        finally
+        {
+            conexion.Close();
+        }
+
+        return respuesta;
+    }
+    //Obtiene el nombre del director y verifica en la base de datos que coincida con el login indicado
+    [WebMethod]
+    public string getNombreDirector(string user)
+    {
+        DataSet ds = new DataSet();
+        string nombre = "";
+        try
+        {
+            string instruccion = "SELECT Nombres FROM Director WHERE Usuario='" + user + "'";
+            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+            if (conectarServidor())
+            {
+                adap1.Fill(ds, "Director");
+                nombre = ds.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                nombre = "Sin conexion";
+            }
+        }
+        catch (Exception ex)
+        {
+            nombre = ex.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return nombre;
+    }
+    //Obtiene el apellido del director y verifica en la base de datos que coincida con el login indicado
+    [WebMethod]
+    public string getApellidoDiretor(string user)
+    {
+        DataSet ds = new DataSet();
+        string nombre = "";
+        try
+        {
+            string instruccion = "SELECT Apellidos FROM Director WHERE Usuario='" + user + "'";
+            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+            if (conectarServidor())
+            {
+                adap1.Fill(ds, "Director");
+                nombre = ds.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                nombre = "Sin conexion";
+            }
+        }
+        catch (Exception ex)
+        {
+            nombre = ex.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return nombre;
+    }
 
         ////El Metodo para agregar las filas estara en una clase Ayuda del Proyecto
 

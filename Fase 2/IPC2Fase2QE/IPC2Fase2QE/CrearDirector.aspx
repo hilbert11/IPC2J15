@@ -1,14 +1,12 @@
-﻿<%@ Page Title="Crear Empleado" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearEmpleado.aspx.cs" Inherits="IPC2Fase2QE.CrearEmpleado" %>
+﻿<%@ Page Title="Crear Director" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearDirector.aspx.cs" Inherits="IPC2Fase2QE.CrearDirector" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Crear Empleado.</h3>
-    <p>Llenar los datos.</p>
+    <h3>Crear Director.</h3>
     <div>
-
         <table style="width:100%;">
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label1" runat="server" Text="Nombres"></asp:Label>
                 </td>
                 <td>
@@ -17,7 +15,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label2" runat="server" Text="Apellidos"></asp:Label>
                 </td>
                 <td>
@@ -26,7 +24,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label3" runat="server" Text="DPI"></asp:Label>
                 </td>
                 <td>
@@ -35,7 +33,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label4" runat="server" Text="Direccion"></asp:Label>
                 </td>
                 <td>
@@ -44,7 +42,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label5" runat="server" Text="Telefono"></asp:Label>
                 </td>
                 <td>
@@ -53,7 +51,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label6" runat="server" Text="Correo"></asp:Label>
                 </td>
                 <td>
@@ -62,7 +60,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px; height: 20px;">
+                <td style="width: 110px; height: 20px;">
                     <asp:Label ID="Label7" runat="server" Text="Sueldo"></asp:Label>
                 </td>
                 <td style="height: 20px">
@@ -71,7 +69,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label9" runat="server" Text="Usuario"></asp:Label>
                 </td>
                 <td>
@@ -80,7 +78,7 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 110px">
                     <asp:Label ID="Label10" runat="server" Text="Contraseña"></asp:Label>
                 </td>
                 <td>
@@ -89,45 +87,11 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
-                    <asp:Label ID="Label8" runat="server" Text="Rol"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" Width="211px" ForeColor="Black">
-                        <asp:ListItem>Empleado</asp:ListItem>
-                        <asp:ListItem>Administrador</asp:ListItem>
-                    </asp:DropDownList>
+                <td style="width: 110px">
+                    <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-default" OnClick="Button1_Click" />
                 </td>
             </tr>
-
-            <tr>
-                <td style="width: 154px">
-                    <asp:Label ID="Label11" runat="server" Text="Nombre Sucursal"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server" Height="17px" Width="211px" ForeColor="Black" DataSourceID="SqlDataSource1" DataTextField="Nombre_sucursal" DataValueField="Nombre_sucursal">
-                    </asp:DropDownList>
-                </td>
-            </tr>
-
-            <tr>
-                <td style="width: 154px">
-                    <asp:Label ID="Label12" runat="server" Text="Nombre Departamento"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="TextBox10" runat="server" Width="208px"></asp:TextBox>
-                </td>
-            </tr>
-
 
         </table>
-        <div>
-
-            <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-default" OnClick="Button1_Click" />
-
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Sucursal]"></asp:SqlDataSource>
-
-        </div>
-
     </div>
 </asp:Content>
