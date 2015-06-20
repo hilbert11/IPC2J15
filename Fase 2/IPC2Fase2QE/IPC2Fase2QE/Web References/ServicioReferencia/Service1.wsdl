@@ -41,6 +41,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ObtenerCodigoSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresede" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoSedeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Registrar">
         <s:complexType>
           <s:sequence>
@@ -251,6 +265,12 @@
   <wsdl:message name="VerificarDepartamentoSoapOut">
     <wsdl:part name="parameters" element="tns:VerificarDepartamentoResponse" />
   </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSede" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSedeResponse" />
+  </wsdl:message>
   <wsdl:message name="RegistrarSoapIn">
     <wsdl:part name="parameters" element="tns:Registrar" />
   </wsdl:message>
@@ -342,6 +362,10 @@
       <wsdl:input message="tns:VerificarDepartamentoSoapIn" />
       <wsdl:output message="tns:VerificarDepartamentoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <wsdl:input message="tns:ObtenerCodigoSedeSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoSedeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <wsdl:input message="tns:RegistrarSoapIn" />
       <wsdl:output message="tns:RegistrarSoapOut" />
@@ -417,6 +441,15 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarDepartamento">
       <soap:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoSede" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -564,6 +597,15 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarDepartamento">
       <soap12:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoSede" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

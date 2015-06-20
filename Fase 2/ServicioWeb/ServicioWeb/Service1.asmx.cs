@@ -129,6 +129,44 @@ namespace ServicioWeb
             }
             return cant;
         }
+        //obtiene El codigo de la sede
+        [WebMethod]
+        public int ObtenerCodigoSede(string nombresede)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_sede FROM Sede where Nombre_sede='" + nombresede + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
         //Metodo para registrar a un cliente
         [WebMethod]
         public bool Registrar(string tabla, string campos, string valor)

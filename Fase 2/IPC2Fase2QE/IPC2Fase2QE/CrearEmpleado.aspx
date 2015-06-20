@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Crear Empleado" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearEmpleado.aspx.cs" Inherits="IPC2Fase2QE.CrearEmpleado" %>
+﻿<%@ Page Title="Crear Empleado" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="CrearEmpleado.aspx.cs" Inherits="IPC2Fase2QE.CrearEmpleado" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

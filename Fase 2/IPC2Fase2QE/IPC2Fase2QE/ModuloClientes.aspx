@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Modulo de Clientes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModuloClientes.aspx.cs" Inherits="IPC2Fase2QE.ModuloClientes" %>
+﻿<%@ Page Title="Modulo de Clientes" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ModuloClientes.aspx.cs" Inherits="IPC2Fase2QE.ModuloClientes" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

@@ -1,4 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="IPC2Fase2QE.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="IPC2Fase2QE.Site2" %>
+
+<!DOCTYPE html>
 
 <!DOCTYPE html>
 
@@ -50,26 +52,24 @@
                     <a class="navbar-brand" runat="server" href="~/">Quetzal Express</a>
                 </div>
                 <div class="navbar-collapse collapse">
-<%--                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
-                    </ul>--%>
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/ModuloDirector">Modulo Director</a></li>
+                        <li><a runat="server" href="~/CrearEmpleado">Crear Empleado</a></li>
+                    </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/CrearCliente">Registrarse</a></li>
-                                <li><a runat="server" href="~/Login">Iniciar sesión</a></li>
+                                <li><a runat="server" href="~/Default">Cerrar Sesion</a></li>
                             </ul>
                         </AnonymousTemplate>
-                        <LoggedInTemplate>
+<%--                        <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
-                        </LoggedInTemplate>
+                        </LoggedInTemplate>--%>
                     </asp:LoginView>
                 </div>
             </div>
@@ -85,3 +85,4 @@
     </form>
 </body>
 </html>
+

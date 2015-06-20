@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Crear Director" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearDirector.aspx.cs" Inherits="IPC2Fase2QE.CrearDirector" %>
+﻿<%@ Page Title="Crear Director" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="CrearDirector.aspx.cs" Inherits="IPC2Fase2QE.CrearDirector" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

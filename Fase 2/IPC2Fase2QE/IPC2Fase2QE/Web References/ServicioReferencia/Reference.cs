@@ -35,6 +35,8 @@ namespace IPC2Fase2QE.ServicioReferencia {
         
         private System.Threading.SendOrPostCallback VerificarDepartamentoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ObtenerCodigoSedeOperationCompleted;
+        
         private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
         
         private System.Threading.SendOrPostCallback existeclienteOperationCompleted;
@@ -107,6 +109,9 @@ namespace IPC2Fase2QE.ServicioReferencia {
         
         /// <remarks/>
         public event VerificarDepartamentoCompletedEventHandler VerificarDepartamentoCompleted;
+        
+        /// <remarks/>
+        public event ObtenerCodigoSedeCompletedEventHandler ObtenerCodigoSedeCompleted;
         
         /// <remarks/>
         public event RegistrarCompletedEventHandler RegistrarCompleted;
@@ -231,6 +236,35 @@ namespace IPC2Fase2QE.ServicioReferencia {
             if ((this.VerificarDepartamentoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.VerificarDepartamentoCompleted(this, new VerificarDepartamentoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ObtenerCodigoSede", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ObtenerCodigoSede(string nombresede) {
+            object[] results = this.Invoke("ObtenerCodigoSede", new object[] {
+                        nombresede});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoSedeAsync(string nombresede) {
+            this.ObtenerCodigoSedeAsync(nombresede, null);
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoSedeAsync(string nombresede, object userState) {
+            if ((this.ObtenerCodigoSedeOperationCompleted == null)) {
+                this.ObtenerCodigoSedeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnObtenerCodigoSedeOperationCompleted);
+            }
+            this.InvokeAsync("ObtenerCodigoSede", new object[] {
+                        nombresede}, this.ObtenerCodigoSedeOperationCompleted, userState);
+        }
+        
+        private void OnObtenerCodigoSedeOperationCompleted(object arg) {
+            if ((this.ObtenerCodigoSedeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ObtenerCodigoSedeCompleted(this, new ObtenerCodigoSedeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -711,6 +745,32 @@ namespace IPC2Fase2QE.ServicioReferencia {
         private object[] results;
         
         internal VerificarDepartamentoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void ObtenerCodigoSedeCompletedEventHandler(object sender, ObtenerCodigoSedeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ObtenerCodigoSedeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ObtenerCodigoSedeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Crear Sede" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearSede.aspx.cs" Inherits="IPC2Fase2QE.CrearSede" %>
+﻿<%@ Page Title="Crear Sede" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="CrearSede.aspx.cs" Inherits="IPC2Fase2QE.CrearSede" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

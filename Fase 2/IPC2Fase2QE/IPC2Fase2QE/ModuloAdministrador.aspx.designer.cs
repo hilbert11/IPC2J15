@@ -10,6 +10,6 @@
 namespace IPC2Fase2QE {
     
     
-    public partial class _Default {
+    public partial class ModuloAdministrador {
     }
 }
