@@ -2,5 +2,5 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Modulo Administrador.</h3>
+    <h3>Modulo Empleado.</h3>
 </asp:Content>

@@ -1,8 +1,9 @@
-﻿<%@ Page Title="Cargar CSV" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargarCSVImpuesto.aspx.cs" Inherits="IPC2Fase2QE.CargarCSV" %>
+﻿<%@ Page Title="CargarCsv" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="~/CargarCSVImpuesto.aspx.cs" Inherits="IPC2Fase2QE.CargarCSVImpuesto" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <h2><%: Title %>.</h2>
-    <h3>Cargar Archivo CSV.</h3>
+    <h3>Cargar Archivo CSV de impuesto.</h3>
     <div>
         <asp:FileUpload ID="FileUpload1" runat="server" />
         <br />
@@ -28,34 +29,5 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
-    <p style="height: 327px">
 
-        <table style="width:100%;">
-            <tr>
-                <td class="modal-sm" style="width: 214px">
-                    <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Obtener" />
-                </td>
-                <td style="width: 265px">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 214px">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </td>
-                <td style="width: 265px">
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 214px">&nbsp;</td>
-                <td style="width: 265px">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-
-    </p>
 </asp:Content>
-

@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Quetzal Express</a>
+<%--                    <a class="navbar-brand" runat="server" href="~/">Quetzal Express</a>--%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -57,6 +57,8 @@
                         <li><a runat="server" href="~/CrearDirector">Crear Director</a></li>
                         <li><a runat="server" href="~/CrearSede">Crear Sede</a></li>
                         <li><a runat="server" href="~/CrearSucursal">Crear Sucursal</a></li>
+                        <li><a runat="server" href="~/CargarCSVImpuesto">CSV Impuesto</a></li>
+                        <li><a runat="server" href="~/GestionCobros">Gestion de Cobros</a></li>
 
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

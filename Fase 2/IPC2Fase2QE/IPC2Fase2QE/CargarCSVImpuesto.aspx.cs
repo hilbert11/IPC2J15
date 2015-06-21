@@ -6,19 +6,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace IPC2Fase2QE
 {
-    public partial class CargarCSV : System.Web.UI.Page
+    public partial class CargarCSVImpuesto : System.Web.UI.Page
     {
         ServicioReferencia.Service1 cq = new ServicioReferencia.Service1();
 
-        SqlConnection conexion = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            //GridView1.AllowUserToAddRows = false
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -177,18 +175,5 @@ namespace IPC2Fase2QE
                     return false;
             }
         }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            //DataTable dt = new DataTable();
-            //GridView1.DataSource = dt;
-            //GridView1.DataBind();
-            //GridViewRow row = GridView1.Rows[0];
-            //TextBox1.Text = Convert.ToString(row.Cells[0].Text);
-            //TextBox2.Text = Convert.ToString(row.Cells[1].Text);
-            //TextBox3.Text = Convert.ToString(row.Cells[2].Text);
-
-        }
-
     }
 }

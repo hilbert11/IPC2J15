@@ -19,7 +19,7 @@ namespace IPC2Fase2QE
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int var= conexion.ObtenerCodigoSede(DropDownList1.SelectedItem.ToString());
+            int var = conexion.ObtenerCodigoSede(DropDownList1.Text);
             
             String Tabla = "Sucursal";
             String Campos = "Nombre_sucursal, Direccion, Capacidad, Telefono, Cod_sede";

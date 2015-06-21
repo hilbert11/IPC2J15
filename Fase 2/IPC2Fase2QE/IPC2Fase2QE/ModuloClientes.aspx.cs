@@ -27,7 +27,7 @@ namespace IPC2Fase2QE
         {
 
 
-            float costoinicio, peso, total, C1, C2, C3;
+            float costoinicio, pesopaquete=0, total, calculo1, calculo2, calculo3;
 
 
 
@@ -77,16 +77,16 @@ namespace IPC2Fase2QE
 
 
             costoinicio = float.Parse(txtcostopaquete.Text);
-            peso = float.Parse(txtpeso.Text);
+            pesopaquete = float.Parse(txtpeso.Text);
 
             //if (DropCategoria.Text == "Accesorio de Telefonia")
             //{
 
 
-            C1 = costoinicio + (peso * peso);
-            C2 = (costoinicio * ((comision / 100)));
-            C3 = costoinicio * (impuesto / 100);
-            total = C1 + C2 + C3;
+            calculo1 = costoinicio + (pesopaquete * peso);
+            calculo2 = (costoinicio * ((comision / 100)));
+            calculo3 = costoinicio * (impuesto / 100);
+            total = calculo1 + calculo2 + calculo1;
             txttotal.Text = total.ToString();
 
             //}

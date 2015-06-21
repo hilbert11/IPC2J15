@@ -152,6 +152,7 @@
     <Content Include="CrearEmpleado.aspx" />
     <Content Include="CrearSede.aspx" />
     <Content Include="CrearSucursal.aspx" />
+    <Content Include="GestionCobros.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="CrearSucursal.aspx.designer.cs">
       <DependentUpon>CrearSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCobros.aspx.cs">
+      <DependentUpon>GestionCobros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionCobros.aspx.designer.cs">
+      <DependentUpon>GestionCobros.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
