@@ -20,7 +20,7 @@ namespace IPC2Fase2QE
         {
             int popo = conexion.VerificarDepartamento(TextBox10.Text, conexion.SeleccionarSursal(DropDownList2.Text));
             String Tabla = "Empleados";
-            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Rol, Contraseña, Usuario, Cod_Departamento";
+            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Usuario, Contraseña, Rol, Cod_Departamento";
             String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "','" + DropDownList1.Text + "','" + popo + "'";
 
             this.TextBox1.Text = "";

@@ -80,7 +80,7 @@ namespace IPC2Fase2QE
                 {
                     Session["NombreAdmin"] = cq.getNombreEmp(UserName.Text);
                     Session["ApellidoAdmin"] = cq.getApellidoEmp(UserName.Text);
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("ModuloAdministrador.aspx");
                     MessageBox.Show("Eres Administrador :D");
                 }
                 else
