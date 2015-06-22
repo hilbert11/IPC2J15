@@ -167,6 +167,44 @@ namespace ServicioWeb
             }
             return cant;
         }
+        //Obtiene el codigo del cliente
+        [WebMethod]
+        public int ObtenerCodigoCliente(string nombrecliente)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_Cliente FROM Clientes where Nombre='" + nombrecliente + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
         //Metodo para registrar a un cliente
         [WebMethod]
         public bool Registrar(string tabla, string campos, string valor)
@@ -307,7 +345,7 @@ namespace ServicioWeb
             }
             return nombre;
         }
-        //Obtiene el apellido y verifica en la base de datos que coincida con el login indicado
+        //Obtiene el apellido del cliente y verifica en la base de datos que coincida con el login indicado
         [WebMethod]
         public string getApellido(string user)
         {
@@ -316,6 +354,37 @@ namespace ServicioWeb
             try
             {
                 string instruccion = "SELECT Apellido FROM Clientes WHERE Usuario='" + user + "'";
+                SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
+                if (conectarServidor())
+                {
+                    adap1.Fill(ds, "Clientes");
+                    nombre = ds.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    nombre = "Sin conexion";
+                }
+            }
+            catch (Exception ex)
+            {
+                nombre = ex.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return nombre;
+        }
+
+        //Obtiene el ID del cliente
+        [WebMethod]
+        public string getCodigoCliente(string user)
+        {
+            DataSet ds = new DataSet();
+            string nombre = "";
+            try
+            {
+                string instruccion = "SELECT Cod_Cliente FROM Clientes WHERE Usuario='" + user + "'";
                 SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
                 if (conectarServidor())
                 {
@@ -616,78 +685,6 @@ namespace ServicioWeb
         return nombre;
     }
 
-        ////El Metodo para agregar las filas estara en una clase Ayuda del Proyecto
-
-    //    //Verifica si existe el empleado y el rol
-    //    [WebMethod]
-    //    public bool existeEmpleado(string user)
-    //    {
-    //        bool respuesta = false;
-    //        DataSet ds = new DataSet();
-
-    //        try
-    //        {
-    //            string instruccion = "SELECT Rol FROM Empleados WHERE Rol= '" + user + "'";
-    //            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
-    //            if (conectarServidor())
-    //            {
-    //                adap1.Fill(ds, "Empleados");
-    //                if (((string)ds.Tables[0].Rows[0][0]).Equals(user))
-    //                {
-    //                    respuesta = true;
-    //                }
-    //                else
-    //                {
-    //                    respuesta = false;
-    //                }
-    //            }
-
-    //        }
-    //        catch (Exception)
-    //        {
-    //            respuesta = false;
-    //        }
-    //        finally
-    //        {
-    //            conexion.Close();
-    //        }
-    //        return respuesta;
-    //    }
-    //    //Inicia sesion con el empleado
-    //    [WebMethod]
-    //    public bool LoginEmpleado(string user, string contraseña)
-    //    {
-    //        bool respuesta = false;
-    //        DataSet ds = new DataSet();
-    //        try
-    //        {
-    //            string instruccion = "SELECT FROM Empleados WHERE Usuario = '" + user + "' and Contraseña='" + contraseña + "'";
-    //            SqlDataAdapter adap1 = new SqlDataAdapter(instruccion, conexion);
-    //            if (conectarServidor())
-    //            {
-    //                adap1.Fill(ds, "Empleados");
-    //                if (((string)ds.Tables[0].Rows[0][0]).Equals(user))
-    //                {
-    //                    respuesta = true;
-    //                }
-    //                else
-    //                {
-    //                    respuesta = false;
-    //                }
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            MostrarError = "Mensaje de la exepción: " + ex.Message.ToString();
-    //            respuesta = false;
-    //        }
-    //        finally
-    //        {
-    //            conexion.Close();
-    //        }
-
-    //        return respuesta;
-    //    }
         
     }
 }

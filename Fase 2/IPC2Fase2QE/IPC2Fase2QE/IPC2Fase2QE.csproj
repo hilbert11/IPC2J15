@@ -148,11 +148,15 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="CargarCSVImpuesto.aspx" />
+    <Content Include="CargarCSVPaquete.aspx" />
     <Content Include="CrearDirector.aspx" />
     <Content Include="CrearEmpleado.aspx" />
+    <Content Include="CrearPaquete.aspx" />
     <Content Include="CrearSede.aspx" />
     <Content Include="CrearSucursal.aspx" />
     <Content Include="GestionCobros.aspx" />
+    <Content Include="GestionEmpleados.aspx" />
+    <Content Include="GestionServicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
@@ -215,6 +219,7 @@
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
     <Content Include="Site3.Master" />
+    <Content Include="Site4.Master" />
     <None Include="Web References\ServicioReferencia\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -243,6 +248,13 @@
     <Compile Include="CargarCSVImpuesto.aspx.designer.cs">
       <DependentUpon>CargarCSVImpuesto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CargarCSVPaquete.aspx.cs">
+      <DependentUpon>CargarCSVPaquete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarCSVPaquete.aspx.designer.cs">
+      <DependentUpon>CargarCSVPaquete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CrearDirector.aspx.cs">
       <DependentUpon>CrearDirector.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +268,13 @@
     </Compile>
     <Compile Include="CrearEmpleado.aspx.designer.cs">
       <DependentUpon>CrearEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPaquete.aspx.cs">
+      <DependentUpon>CrearPaquete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearPaquete.aspx.designer.cs">
+      <DependentUpon>CrearPaquete.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearSede.aspx.cs">
       <DependentUpon>CrearSede.aspx</DependentUpon>
@@ -277,6 +296,20 @@
     </Compile>
     <Compile Include="GestionCobros.aspx.designer.cs">
       <DependentUpon>GestionCobros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionEmpleados.aspx.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionEmpleados.aspx.designer.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionServicio.aspx.cs">
+      <DependentUpon>GestionServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionServicio.aspx.designer.cs">
+      <DependentUpon>GestionServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -402,6 +435,13 @@
     </Compile>
     <Compile Include="Site3.Master.designer.cs">
       <DependentUpon>Site3.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site4.Master.cs">
+      <DependentUpon>Site4.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site4.Master.designer.cs">
+      <DependentUpon>Site4.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

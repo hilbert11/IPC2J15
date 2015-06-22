@@ -55,6 +55,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ObtenerCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombrecliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Registrar">
         <s:complexType>
           <s:sequence>
@@ -126,6 +140,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="getApellidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCodigoClienteResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -271,6 +299,12 @@
   <wsdl:message name="ObtenerCodigoSedeSoapOut">
     <wsdl:part name="parameters" element="tns:ObtenerCodigoSedeResponse" />
   </wsdl:message>
+  <wsdl:message name="ObtenerCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoClienteResponse" />
+  </wsdl:message>
   <wsdl:message name="RegistrarSoapIn">
     <wsdl:part name="parameters" element="tns:Registrar" />
   </wsdl:message>
@@ -300,6 +334,12 @@
   </wsdl:message>
   <wsdl:message name="getApellidoSoapOut">
     <wsdl:part name="parameters" element="tns:getApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCodigoClienteResponse" />
   </wsdl:message>
   <wsdl:message name="LoginEmpleadoSoapIn">
     <wsdl:part name="parameters" element="tns:LoginEmpleado" />
@@ -366,6 +406,10 @@
       <wsdl:input message="tns:ObtenerCodigoSedeSoapIn" />
       <wsdl:output message="tns:ObtenerCodigoSedeSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <wsdl:input message="tns:ObtenerCodigoClienteSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoClienteSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <wsdl:input message="tns:RegistrarSoapIn" />
       <wsdl:output message="tns:RegistrarSoapOut" />
@@ -385,6 +429,10 @@
     <wsdl:operation name="getApellido">
       <wsdl:input message="tns:getApellidoSoapIn" />
       <wsdl:output message="tns:getApellidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <wsdl:input message="tns:getCodigoClienteSoapIn" />
+      <wsdl:output message="tns:getCodigoClienteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LoginEmpleado">
       <wsdl:input message="tns:LoginEmpleadoSoapIn" />
@@ -457,6 +505,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <soap:operation soapAction="http://tempuri.org/Registrar" style="document" />
       <wsdl:input>
@@ -495,6 +552,15 @@
     </wsdl:operation>
     <wsdl:operation name="getApellido">
       <soap:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -613,6 +679,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <soap12:operation soapAction="http://tempuri.org/Registrar" style="document" />
       <wsdl:input>
@@ -651,6 +726,15 @@
     </wsdl:operation>
     <wsdl:operation name="getApellido">
       <soap12:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap12:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

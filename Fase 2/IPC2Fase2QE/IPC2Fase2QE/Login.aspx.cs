@@ -36,6 +36,7 @@ namespace IPC2Fase2QE
 
                 if (cq.LoginCliente(UserName.Text, Password.Text, DropDownList1.Text) == true)
                 {
+                    Session["CodCliente"] = cq.getCodigoCliente(UserName.Text);
                     Session["username"] = cq.getNombre(UserName.Text);
                     Session["apellido"] = cq.getApellido(UserName.Text);
                     // Session["tipo"] = 1;

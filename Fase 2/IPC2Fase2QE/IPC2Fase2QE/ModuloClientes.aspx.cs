@@ -15,12 +15,24 @@ namespace IPC2Fase2QE
         public float comision, peso, impuesto;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TextBox1.Text = Session["username"].ToString();
+            TextBox1.Text = Session["username"].ToString();
+            TextBox2.Text = Session["CodCliente"].ToString();
+            
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-
+            Label1.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            Label4.Visible = true;
+            txtcostopaquete.Visible = true;
+            txtpeso.Visible = true;
+            DropSede.Visible = true;
+            DropCategoria.Visible = true;
+            txttotal.Visible = true;
+            GridView1.Visible = false;
+            GridView2.Visible = false;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -79,9 +91,6 @@ namespace IPC2Fase2QE
             costoinicio = float.Parse(txtcostopaquete.Text);
             pesopaquete = float.Parse(txtpeso.Text);
 
-            //if (DropCategoria.Text == "Accesorio de Telefonia")
-            //{
-
 
             calculo1 = costoinicio + (pesopaquete * peso);
             calculo2 = (costoinicio * ((comision / 100)));
@@ -89,56 +98,43 @@ namespace IPC2Fase2QE
             total = calculo1 + calculo2 + calculo1;
             txttotal.Text = total.ToString();
 
-            //}
-            //else if (DropCategoria.Text == "Videocintas")
-            //{
-
-            //    C1 = costoinicio + (peso * pesolb33);
-            //    C2 = (costoinicio * (comision / 100));
-            //    C3 = costoinicio * (impu / 100);
-            //    total = C1 + C2 + C3;
-            //    txttotal.Text = total.ToString();
-
-            //}
-            //else if (DropCategoria.Text == "Articulos de Cuero")
-            //{
-            //    C1 = costoinicio + (peso * pesolb33);
-            //    C2 = (costoinicio * (comision / 100));
-            //    C3 = costoinicio * (impu / 100);
-            //    total = C1 + C2 + C3;
-            //    txttotal.Text = total.ToString();
-
-
-            //}
-            //else if (DropCategoria.Text == "Zapatos")
-            //{
-            //    C1 = costoinicio + (peso * pesolb33);
-            //    C2 = (costoinicio * (comision / 100));
-            //    C3 = costoinicio * (impu / 100);
-            //    total = C1 + C2 + C3;
-            //    txttotal.Text = total.ToString();
-            //}
-
-            //else if (DropCategoria.Text == "Videojuegos Blu-Ray")
-            //{
-            //    C1 = costoinicio + (peso * pesolb33);
-            //    C2 = (costoinicio * (comision / 100));
-            //    C3 = costoinicio * (impu / 100);
-            //    total = C1 + C2 + C3;
-            //    txttotal.Text = total.ToString();
-
-
-            //}
-
-
-            //else
-            //{
-            //    txttotal.Text = "Error";
-            //}
-
-
-
             
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count == 0){
+                MessageBox.Show("No tienes paquetes");
+            }
+            else
+            {
+                GridView1.Visible = true;
+            }
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            Label4.Visible = false;
+            txtcostopaquete.Visible = false;
+            txtpeso.Visible = false;
+            DropSede.Visible = false;
+            DropCategoria.Visible = false;
+            txttotal.Visible = false;
+            GridView2.Visible = false;
+
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            Label4.Visible = false;
+            txtcostopaquete.Visible = false;
+            txtpeso.Visible = false;
+            DropSede.Visible = false;
+            DropCategoria.Visible = false;
+            txttotal.Visible = false;
+            GridView2.Visible = true;
         }
     }
 }
