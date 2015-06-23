@@ -64,3 +64,6 @@ C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\bin\es\Micro
 C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\obj\Debug\IPC2Fase2QE.dll
 C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\obj\Debug\IPC2Fase2QE.pdb
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\bin\itextsharp.dll
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\bin\itextsharp.pdfa.dll
+C:\Users\Entrar Aqui\Desktop\IPC2J15\Fase 2\IPC2Fase2QE\IPC2Fase2QE\bin\itextsharp.xtra.dll
