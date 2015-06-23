@@ -33,6 +33,7 @@ namespace IPC2Fase2QE
             txttotal.Visible = true;
             GridView1.Visible = false;
             GridView2.Visible = false;
+            GridView3.Visible = false;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -109,6 +110,7 @@ namespace IPC2Fase2QE
             else
             {
                 GridView1.Visible = true;
+                GridView3.Visible = true;
             }
             Label1.Visible = false;
             Label2.Visible = false;
@@ -135,6 +137,21 @@ namespace IPC2Fase2QE
             DropCategoria.Visible = false;
             txttotal.Visible = false;
             GridView2.Visible = true;
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName==("Select")){
+                Int32 num = Convert.ToInt32(e.CommandArgument);
+                TextBox3.Text = GridView1.Rows[num].Cells[1].Text;
+
+
+            }
+        }
+
+        protected void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

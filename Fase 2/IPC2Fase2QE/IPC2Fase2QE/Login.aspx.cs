@@ -36,16 +36,25 @@ namespace IPC2Fase2QE
 
                 if (cq.LoginCliente(UserName.Text, Password.Text, DropDownList1.Text) == true)
                 {
-                    Session["CodCliente"] = cq.getCodigoCliente(UserName.Text);
-                    Session["username"] = cq.getNombre(UserName.Text);
-                    Session["apellido"] = cq.getApellido(UserName.Text);
-                    // Session["tipo"] = 1;
+                    if (cq.getCasillaCliente(UserName.Text).Equals("0"))
+                    {
+                        MessageBox.Show("No han aceptado su solicitud :(");
+                    }
+                    else
+                    {
+                        Session["CodCliente"] = cq.getCodigoCliente(UserName.Text);
+                        Session["username"] = cq.getNombre(UserName.Text);
+                        Session["apellido"] = cq.getApellido(UserName.Text);
+                        // Session["tipo"] = 1;
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Encontro Usuario cliente');</script>");
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Encontro Usuario cliente');</script>");
 
-                    Response.Redirect("ModuloClientes.aspx");
-                    MessageBox.Show("Inicio correcta :D");
+                        Response.Redirect("ModuloClientes.aspx");
+                        MessageBox.Show("Inicio correcta :D");
 
+
+                    }
+                   
 
                 }
                 else
@@ -63,7 +72,7 @@ namespace IPC2Fase2QE
                 {
                     Session["NombreEmpleado"] = cq.getNombreEmp(UserName.Text);
                     Session["ApellidoEmpleado"] = cq.getApellidoEmp(UserName.Text);
-                    Response.Redirect("Contact.aspx");
+                    Response.Redirect("ModuloEmpleado.aspx");
                     MessageBox.Show("Hola Emppleado :)");
 
                 }

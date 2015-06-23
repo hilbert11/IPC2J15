@@ -89,10 +89,10 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 154px; height: 23px;">
                     <asp:Label ID="Label8" runat="server" Text="Rol"></asp:Label>
                 </td>
-                <td>
+                <td style="height: 23px">
                     <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" Width="211px" ForeColor="Black">
                         <asp:ListItem>Empleado</asp:ListItem>
                         <asp:ListItem>Administrador</asp:ListItem>
@@ -107,6 +107,9 @@
                 <td>
                     <asp:DropDownList ID="DropDownList2" runat="server" Height="17px" Width="211px" ForeColor="Black" DataSourceID="SqlDataSource1" DataTextField="Nombre_sucursal" DataValueField="Nombre_sucursal">
                     </asp:DropDownList>
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Sucursal]"></asp:SqlDataSource>
+
                 </td>
             </tr>
 
@@ -115,7 +118,9 @@
                     <asp:Label ID="Label12" runat="server" Text="Nombre Departamento"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox10" runat="server" Width="208px"></asp:TextBox>
+                    <asp:DropDownList ID="DropDownList3" runat="server" Height="17px" Width="211px" ForeColor="Black" DataSourceID="SqlDataSource2" DataTextField="Nombre_departamento" DataValueField="Nombre_departamento">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Departamento]"></asp:SqlDataSource>
                 </td>
             </tr>
 
@@ -124,8 +129,6 @@
         <div>
 
             <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-default" OnClick="Button1_Click" />
-
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Sucursal]"></asp:SqlDataSource>
 
         </div>
 

@@ -13,5 +13,26 @@ namespace IPC2Fase2QE
         {
 
         }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView3_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == ("Select"))
+            {
+                Int32 num = Convert.ToInt32(e.CommandArgument);
+                TextBox1.Text = GridView1.Rows[num].Cells[1].Text;
+
+
+            }
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

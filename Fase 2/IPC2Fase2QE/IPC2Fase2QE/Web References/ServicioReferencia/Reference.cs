@@ -39,6 +39,10 @@ namespace IPC2Fase2QE.ServicioReferencia {
         
         private System.Threading.SendOrPostCallback ObtenerCodigoClienteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ObtenerCodigoDepartamentoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ObtenerCodigoSucursalOperationCompleted;
+        
         private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
         
         private System.Threading.SendOrPostCallback existeclienteOperationCompleted;
@@ -50,6 +54,12 @@ namespace IPC2Fase2QE.ServicioReferencia {
         private System.Threading.SendOrPostCallback getApellidoOperationCompleted;
         
         private System.Threading.SendOrPostCallback getCodigoClienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCasillaClienteMaxOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCasillaClienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ModificarCasillaClienteOperationCompleted;
         
         private System.Threading.SendOrPostCallback LoginEmpleadoOperationCompleted;
         
@@ -121,6 +131,12 @@ namespace IPC2Fase2QE.ServicioReferencia {
         public event ObtenerCodigoClienteCompletedEventHandler ObtenerCodigoClienteCompleted;
         
         /// <remarks/>
+        public event ObtenerCodigoDepartamentoCompletedEventHandler ObtenerCodigoDepartamentoCompleted;
+        
+        /// <remarks/>
+        public event ObtenerCodigoSucursalCompletedEventHandler ObtenerCodigoSucursalCompleted;
+        
+        /// <remarks/>
         public event RegistrarCompletedEventHandler RegistrarCompleted;
         
         /// <remarks/>
@@ -137,6 +153,15 @@ namespace IPC2Fase2QE.ServicioReferencia {
         
         /// <remarks/>
         public event getCodigoClienteCompletedEventHandler getCodigoClienteCompleted;
+        
+        /// <remarks/>
+        public event getCasillaClienteMaxCompletedEventHandler getCasillaClienteMaxCompleted;
+        
+        /// <remarks/>
+        public event getCasillaClienteCompletedEventHandler getCasillaClienteCompleted;
+        
+        /// <remarks/>
+        public event ModificarCasillaClienteCompletedEventHandler ModificarCasillaClienteCompleted;
         
         /// <remarks/>
         public event LoginEmpleadoCompletedEventHandler LoginEmpleadoCompleted;
@@ -304,6 +329,64 @@ namespace IPC2Fase2QE.ServicioReferencia {
             if ((this.ObtenerCodigoClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ObtenerCodigoClienteCompleted(this, new ObtenerCodigoClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ObtenerCodigoDepartamento", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ObtenerCodigoDepartamento(string nombredepartamento) {
+            object[] results = this.Invoke("ObtenerCodigoDepartamento", new object[] {
+                        nombredepartamento});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoDepartamentoAsync(string nombredepartamento) {
+            this.ObtenerCodigoDepartamentoAsync(nombredepartamento, null);
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoDepartamentoAsync(string nombredepartamento, object userState) {
+            if ((this.ObtenerCodigoDepartamentoOperationCompleted == null)) {
+                this.ObtenerCodigoDepartamentoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnObtenerCodigoDepartamentoOperationCompleted);
+            }
+            this.InvokeAsync("ObtenerCodigoDepartamento", new object[] {
+                        nombredepartamento}, this.ObtenerCodigoDepartamentoOperationCompleted, userState);
+        }
+        
+        private void OnObtenerCodigoDepartamentoOperationCompleted(object arg) {
+            if ((this.ObtenerCodigoDepartamentoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ObtenerCodigoDepartamentoCompleted(this, new ObtenerCodigoDepartamentoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ObtenerCodigoSucursal", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ObtenerCodigoSucursal(string nombresucursal) {
+            object[] results = this.Invoke("ObtenerCodigoSucursal", new object[] {
+                        nombresucursal});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoSucursalAsync(string nombresucursal) {
+            this.ObtenerCodigoSucursalAsync(nombresucursal, null);
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoSucursalAsync(string nombresucursal, object userState) {
+            if ((this.ObtenerCodigoSucursalOperationCompleted == null)) {
+                this.ObtenerCodigoSucursalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnObtenerCodigoSucursalOperationCompleted);
+            }
+            this.InvokeAsync("ObtenerCodigoSucursal", new object[] {
+                        nombresucursal}, this.ObtenerCodigoSucursalOperationCompleted, userState);
+        }
+        
+        private void OnObtenerCodigoSucursalOperationCompleted(object arg) {
+            if ((this.ObtenerCodigoSucursalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ObtenerCodigoSucursalCompleted(this, new ObtenerCodigoSucursalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -486,6 +569,93 @@ namespace IPC2Fase2QE.ServicioReferencia {
             if ((this.getCodigoClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getCodigoClienteCompleted(this, new getCodigoClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getCasillaClienteMax", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getCasillaClienteMax() {
+            object[] results = this.Invoke("getCasillaClienteMax", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCasillaClienteMaxAsync() {
+            this.getCasillaClienteMaxAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getCasillaClienteMaxAsync(object userState) {
+            if ((this.getCasillaClienteMaxOperationCompleted == null)) {
+                this.getCasillaClienteMaxOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCasillaClienteMaxOperationCompleted);
+            }
+            this.InvokeAsync("getCasillaClienteMax", new object[0], this.getCasillaClienteMaxOperationCompleted, userState);
+        }
+        
+        private void OngetCasillaClienteMaxOperationCompleted(object arg) {
+            if ((this.getCasillaClienteMaxCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCasillaClienteMaxCompleted(this, new getCasillaClienteMaxCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getCasillaCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getCasillaCliente(string user) {
+            object[] results = this.Invoke("getCasillaCliente", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCasillaClienteAsync(string user) {
+            this.getCasillaClienteAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getCasillaClienteAsync(string user, object userState) {
+            if ((this.getCasillaClienteOperationCompleted == null)) {
+                this.getCasillaClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCasillaClienteOperationCompleted);
+            }
+            this.InvokeAsync("getCasillaCliente", new object[] {
+                        user}, this.getCasillaClienteOperationCompleted, userState);
+        }
+        
+        private void OngetCasillaClienteOperationCompleted(object arg) {
+            if ((this.getCasillaClienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCasillaClienteCompleted(this, new getCasillaClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ModificarCasillaCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ModificarCasillaCliente(int cod, string casilla) {
+            object[] results = this.Invoke("ModificarCasillaCliente", new object[] {
+                        cod,
+                        casilla});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ModificarCasillaClienteAsync(int cod, string casilla) {
+            this.ModificarCasillaClienteAsync(cod, casilla, null);
+        }
+        
+        /// <remarks/>
+        public void ModificarCasillaClienteAsync(int cod, string casilla, object userState) {
+            if ((this.ModificarCasillaClienteOperationCompleted == null)) {
+                this.ModificarCasillaClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnModificarCasillaClienteOperationCompleted);
+            }
+            this.InvokeAsync("ModificarCasillaCliente", new object[] {
+                        cod,
+                        casilla}, this.ModificarCasillaClienteOperationCompleted, userState);
+        }
+        
+        private void OnModificarCasillaClienteOperationCompleted(object arg) {
+            if ((this.ModificarCasillaClienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ModificarCasillaClienteCompleted(this, new ModificarCasillaClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -880,6 +1050,58 @@ namespace IPC2Fase2QE.ServicioReferencia {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void ObtenerCodigoDepartamentoCompletedEventHandler(object sender, ObtenerCodigoDepartamentoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ObtenerCodigoDepartamentoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ObtenerCodigoDepartamentoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void ObtenerCodigoSucursalCompletedEventHandler(object sender, ObtenerCodigoSucursalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ObtenerCodigoSucursalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ObtenerCodigoSucursalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
     public delegate void RegistrarCompletedEventHandler(object sender, RegistrarCompletedEventArgs e);
     
     /// <remarks/>
@@ -1030,6 +1252,84 @@ namespace IPC2Fase2QE.ServicioReferencia {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getCasillaClienteMaxCompletedEventHandler(object sender, getCasillaClienteMaxCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCasillaClienteMaxCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCasillaClienteMaxCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getCasillaClienteCompletedEventHandler(object sender, getCasillaClienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCasillaClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCasillaClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void ModificarCasillaClienteCompletedEventHandler(object sender, ModificarCasillaClienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ModificarCasillaClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ModificarCasillaClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

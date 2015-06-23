@@ -69,6 +69,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ObtenerCodigoDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombredepartamento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoSucursalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Registrar">
         <s:complexType>
           <s:sequence>
@@ -154,6 +182,45 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="getCodigoClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaClienteMax">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCasillaClienteMaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasillaClienteMaxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasillaClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasillaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasillaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCasillaClienteResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -305,6 +372,18 @@
   <wsdl:message name="ObtenerCodigoClienteSoapOut">
     <wsdl:part name="parameters" element="tns:ObtenerCodigoClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="ObtenerCodigoDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSucursal" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSucursalResponse" />
+  </wsdl:message>
   <wsdl:message name="RegistrarSoapIn">
     <wsdl:part name="parameters" element="tns:Registrar" />
   </wsdl:message>
@@ -340,6 +419,24 @@
   </wsdl:message>
   <wsdl:message name="getCodigoClienteSoapOut">
     <wsdl:part name="parameters" element="tns:getCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteMaxSoapIn">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteMax" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteMaxSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteMaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCasillaCliente" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasillaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCasillaCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasillaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCasillaClienteResponse" />
   </wsdl:message>
   <wsdl:message name="LoginEmpleadoSoapIn">
     <wsdl:part name="parameters" element="tns:LoginEmpleado" />
@@ -410,6 +507,14 @@
       <wsdl:input message="tns:ObtenerCodigoClienteSoapIn" />
       <wsdl:output message="tns:ObtenerCodigoClienteSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <wsdl:input message="tns:ObtenerCodigoDepartamentoSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <wsdl:input message="tns:ObtenerCodigoSucursalSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoSucursalSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <wsdl:input message="tns:RegistrarSoapIn" />
       <wsdl:output message="tns:RegistrarSoapOut" />
@@ -433,6 +538,18 @@
     <wsdl:operation name="getCodigoCliente">
       <wsdl:input message="tns:getCodigoClienteSoapIn" />
       <wsdl:output message="tns:getCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <wsdl:input message="tns:getCasillaClienteMaxSoapIn" />
+      <wsdl:output message="tns:getCasillaClienteMaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <wsdl:input message="tns:getCasillaClienteSoapIn" />
+      <wsdl:output message="tns:getCasillaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <wsdl:input message="tns:ModificarCasillaClienteSoapIn" />
+      <wsdl:output message="tns:ModificarCasillaClienteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LoginEmpleado">
       <wsdl:input message="tns:LoginEmpleadoSoapIn" />
@@ -514,6 +631,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <soap:operation soapAction="http://tempuri.org/Registrar" style="document" />
       <wsdl:input>
@@ -561,6 +696,33 @@
     </wsdl:operation>
     <wsdl:operation name="getCodigoCliente">
       <soap:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <soap:operation soapAction="http://tempuri.org/getCasillaClienteMax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <soap:operation soapAction="http://tempuri.org/getCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <soap:operation soapAction="http://tempuri.org/ModificarCasillaCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -688,6 +850,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Registrar">
       <soap12:operation soapAction="http://tempuri.org/Registrar" style="document" />
       <wsdl:input>
@@ -735,6 +915,33 @@
     </wsdl:operation>
     <wsdl:operation name="getCodigoCliente">
       <soap12:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <soap12:operation soapAction="http://tempuri.org/getCasillaClienteMax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <soap12:operation soapAction="http://tempuri.org/getCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <soap12:operation soapAction="http://tempuri.org/ModificarCasillaCliente" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

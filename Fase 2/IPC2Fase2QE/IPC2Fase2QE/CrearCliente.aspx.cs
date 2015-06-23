@@ -16,8 +16,8 @@ namespace IPC2Fase2QE.Account
         protected void Button1_Click(object sender, EventArgs e)
         {
             String Tabla = "Clientes";
-            String Campos = "Nombre, Apellido, Direccion, DPI, NIT, Telefono, Usuario, Contraseña";
-            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "'";
+            String Campos = "Nombre, Apellido, Direccion, DPI, NIT, Telefono, Usuario, Contraseña, Casilla";
+            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + 0 + "'";
 
             this.TextBox1.Text = "";
             this.TextBox2.Text = "";
@@ -30,7 +30,7 @@ namespace IPC2Fase2QE.Account
 
             if (conexion.Registrar(Tabla, Campos, Valores))
             {
-                MessageBox.Show("Ud. fue registrado! :D");
+                MessageBox.Show("Espere su aceptacion! :D");
             }
             else
             {

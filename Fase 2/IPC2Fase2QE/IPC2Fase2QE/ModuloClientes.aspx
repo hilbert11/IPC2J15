@@ -50,8 +50,9 @@
                     <asp:ControlParameter ControlID="TextBox2" Name="Cod_Cliente" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Visible="False">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Visible="False" OnRowCommand="GridView1_RowCommand">
                 <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" InsertVisible="False" ReadOnly="True" SortExpression="Cod_Paquete" />
                     <asp:BoundField DataField="Peso" HeaderText="Peso" SortExpression="Peso" />
                     <asp:BoundField DataField="Valor" HeaderText="Valor" SortExpression="Valor" />
@@ -70,6 +71,38 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
+
+        </p>
+        <p style="height: 210px">
+
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="None" Visible="False">
+                <AlternatingRowStyle BackColor="PaleGoldenrod" />
+                <Columns>
+                    <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" InsertVisible="False" ReadOnly="True" SortExpression="Cod_Paquete" />
+                    <asp:BoundField DataField="Peso" HeaderText="Peso" SortExpression="Peso" />
+                    <asp:BoundField DataField="Valor" HeaderText="Valor" SortExpression="Valor" />
+                    <asp:BoundField DataField="Costo" HeaderText="Costo" SortExpression="Costo" />
+                    <asp:BoundField DataField="Impuesto" HeaderText="Impuesto" SortExpression="Impuesto" />
+                    <asp:BoundField DataField="Comision" HeaderText="Comision" SortExpression="Comision" />
+                    <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
+                    <asp:BoundField DataField="Stock" HeaderText="Stock" SortExpression="Stock" />
+                    <asp:BoundField DataField="Cod_Cliente" HeaderText="Cod_Cliente" SortExpression="Cod_Cliente" />
+                </Columns>
+                <FooterStyle BackColor="Tan" />
+                <HeaderStyle BackColor="Tan" Font-Bold="True" />
+                <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+                <SortedAscendingCellStyle BackColor="#FAFAE7" />
+                <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+                <SortedDescendingCellStyle BackColor="#E1DB9C" />
+                <SortedDescendingHeaderStyle BackColor="#C2A47B" />
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Paquete] WHERE ([Cod_Paquete] = @Cod_Paquete)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="TextBox3" Name="Cod_Paquete" PropertyName="Text" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:TextBox ID="TextBox3" runat="server" Visible="False" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
 
         </p>
         <p style="height: 224px">

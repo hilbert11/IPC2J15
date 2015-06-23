@@ -27,6 +27,7 @@ namespace IPC2Fase2QE
 
             this.TextBox1.Text = "";
             this.TextBox2.Text = "";
+            
 
             if (cq.Registrar(Tabla, Campos, Valores))
             {

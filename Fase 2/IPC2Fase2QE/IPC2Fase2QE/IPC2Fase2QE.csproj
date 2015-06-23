@@ -147,10 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CargarCSVContratacion.aspx" />
     <Content Include="CargarCSVImpuesto.aspx" />
     <Content Include="CargarCSVPaquete.aspx" />
     <Content Include="CrearDirector.aspx" />
     <Content Include="CrearEmpleado.aspx" />
+    <Content Include="CrearLote.aspx" />
     <Content Include="CrearPaquete.aspx" />
     <Content Include="CrearSede.aspx" />
     <Content Include="CrearSucursal.aspx" />
@@ -241,6 +243,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargarCSVContratacion.aspx.cs">
+      <DependentUpon>CargarCSVContratacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarCSVContratacion.aspx.designer.cs">
+      <DependentUpon>CargarCSVContratacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CargarCSVImpuesto.aspx.cs">
       <DependentUpon>CargarCSVImpuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -268,6 +277,13 @@
     </Compile>
     <Compile Include="CrearEmpleado.aspx.designer.cs">
       <DependentUpon>CrearEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearLote.aspx.cs">
+      <DependentUpon>CrearLote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearLote.aspx.designer.cs">
+      <DependentUpon>CrearLote.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearPaquete.aspx.cs">
       <DependentUpon>CrearPaquete.aspx</DependentUpon>

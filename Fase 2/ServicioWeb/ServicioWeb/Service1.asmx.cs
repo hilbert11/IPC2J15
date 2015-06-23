@@ -205,6 +205,82 @@ namespace ServicioWeb
             }
             return cant;
         }
+        //Obtiene el codigo del Departamento
+        [WebMethod]
+        public int ObtenerCodigoDepartamento(string nombredepartamento)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_Departamento FROM Departamento where Nombre_departamento='" + nombredepartamento + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
+        //Obtiene el codigo de la sucursal
+        [WebMethod]
+        public int ObtenerCodigoSucursal(string nombresucursal)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_sucursal FROM Sucursal where Nombre_sucursal='" + nombresucursal + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
         //Metodo para registrar a un cliente
         [WebMethod]
         public bool Registrar(string tabla, string campos, string valor)
@@ -406,7 +482,105 @@ namespace ServicioWeb
             }
             return nombre;
         }
+        [WebMethod]
+        //Obtiene el numero de casilla Maximo que hay de clientes
+        public string getCasillaClienteMax()
+        {
+            DataSet ds = new DataSet();
+            string nombre = "";
+
+            try
+            {
+                string instruccion = "SELECT Casilla From Clientes WHERE Casilla = (SELECT MAX(Casilla) From Clientes)";
+                SqlDataAdapter adp1 = new SqlDataAdapter(instruccion, conexion);
+                if (conectarServidor())
+                {
+                    adp1.Fill(ds, "Clientes");
+                    nombre = ds.Tables[0].Rows[0][0].ToString();
+
+                }
+                else
+                {
+                    nombre = "Sin conexion";
+                }
+            }
+            catch(Exception ex)
+            {
+                nombre = ex.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return nombre;
+        }
+       
+        [WebMethod]
+        //Obtiene el numero de casilla del cliente
+        public string getCasillaCliente(string  user)
+        {
+            DataSet ds = new DataSet();
+            string nombre = "";
+
+            try
+            {
+                string instruccion = "SELECT Casilla From Clientes WHERE Usuario='"+user +"'";
+                SqlDataAdapter adp1 = new SqlDataAdapter(instruccion, conexion);
+                if (conectarServidor())
+                {
+                    adp1.Fill(ds, "Clientes");
+                    nombre = ds.Tables[0].Rows[0][0].ToString();
+
+                }
+                else
+                {
+                    nombre = "Sin conexion";
+                }
+            }
+            catch (Exception ex)
+            {
+                nombre = ex.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return nombre;
+        }
         
+        //Modificar casilla
+    [WebMethod]
+        public bool ModificarCasillaCliente(int cod, string casilla)
+        {
+            bool respuesta = false;
+            try
+            {
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "UPDATE Clientes SET Casilla = '"+ casilla + "' WHERE Cod_Cliente ='"+cod+"'";
+                if (conectarServidor())
+                {
+                    if(comando.ExecuteNonQuery()==1){
+                        respuesta = true;
+                       
+                    }
+                    else
+                    {
+                        respuesta = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
+
+        }
         //Inicia sesion con Empleado
         [WebMethod]
         public int LoginEmpleado(string usuario, string contraseña, string rol)
