@@ -1,0 +1,3 @@
+Cod_Empleado,Nombres,Apellidos,DPI,Direccion,Telefono,Correo,Sueldo,Usuario,Contraseña,Rol
+3,Carlos,Peña,789,Guatemala,456,adios@ipc.com,2500,Carlos,123,Empleado
+4,Mario,Bautista,963,Zona 1,741,tequiero@ipc.com,5000,Marito,123,Administrador

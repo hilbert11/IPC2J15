@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="conectarServidor">
+        <s:complexType />
+      </s:element>
+      <s:element name="conectarServidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="conectarServidorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresucur" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeleccionarSursalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombredepa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sucur" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresede" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoSedeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombrecliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombredepartamento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoDepartamentoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombresucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoSucursalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Registrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tabla" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existecliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeclienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="existeclienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCodigoClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaClienteMax">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCasillaClienteMaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasillaClienteMaxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCasillaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCasillaClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasillaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasillaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCasillaClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginEmpleadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreEmpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoEmpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarCSVImpuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="existeDirectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginDirectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreDirector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNombreDirectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNombreDirectorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoDiretor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getApellidoDiretorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getApellidoDiretorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="conectarServidorSoapIn">
+    <wsdl:part name="parameters" element="tns:conectarServidor" />
+  </wsdl:message>
+  <wsdl:message name="conectarServidorSoapOut">
+    <wsdl:part name="parameters" element="tns:conectarServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSursalSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarSursal" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSursalSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarSursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="VerificarDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSede" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSucursal" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoSucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSoapIn">
+    <wsdl:part name="parameters" element="tns:Registrar" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="existeclienteSoapIn">
+    <wsdl:part name="parameters" element="tns:existecliente" />
+  </wsdl:message>
+  <wsdl:message name="existeclienteSoapOut">
+    <wsdl:part name="parameters" element="tns:existeclienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginCliente" />
+  </wsdl:message>
+  <wsdl:message name="LoginClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombre" />
+  </wsdl:message>
+  <wsdl:message name="getNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellido" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteMaxSoapIn">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteMax" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteMaxSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteMaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCasillaCliente" />
+  </wsdl:message>
+  <wsdl:message name="getCasillaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCasillaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasillaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCasillaCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasillaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCasillaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="LoginEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNombreEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombreEmp" />
+  </wsdl:message>
+  <wsdl:message name="getNombreEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellidoEmp" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuesto" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="existeDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:existeDirector" />
+  </wsdl:message>
+  <wsdl:message name="existeDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:existeDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginDirector" />
+  </wsdl:message>
+  <wsdl:message name="LoginDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNombreDirectorSoapIn">
+    <wsdl:part name="parameters" element="tns:getNombreDirector" />
+  </wsdl:message>
+  <wsdl:message name="getNombreDirectorSoapOut">
+    <wsdl:part name="parameters" element="tns:getNombreDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoDiretorSoapIn">
+    <wsdl:part name="parameters" element="tns:getApellidoDiretor" />
+  </wsdl:message>
+  <wsdl:message name="getApellidoDiretorSoapOut">
+    <wsdl:part name="parameters" element="tns:getApellidoDiretorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="conectarServidor">
+      <wsdl:input message="tns:conectarServidorSoapIn" />
+      <wsdl:output message="tns:conectarServidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <wsdl:input message="tns:SeleccionarSursalSoapIn" />
+      <wsdl:output message="tns:SeleccionarSursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <wsdl:input message="tns:VerificarDepartamentoSoapIn" />
+      <wsdl:output message="tns:VerificarDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <wsdl:input message="tns:ObtenerCodigoSedeSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <wsdl:input message="tns:ObtenerCodigoClienteSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <wsdl:input message="tns:ObtenerCodigoDepartamentoSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <wsdl:input message="tns:ObtenerCodigoSucursalSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoSucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <wsdl:input message="tns:RegistrarSoapIn" />
+      <wsdl:output message="tns:RegistrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <wsdl:input message="tns:existeclienteSoapIn" />
+      <wsdl:output message="tns:existeclienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <wsdl:input message="tns:LoginClienteSoapIn" />
+      <wsdl:output message="tns:LoginClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <wsdl:input message="tns:getNombreSoapIn" />
+      <wsdl:output message="tns:getNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <wsdl:input message="tns:getApellidoSoapIn" />
+      <wsdl:output message="tns:getApellidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <wsdl:input message="tns:getCodigoClienteSoapIn" />
+      <wsdl:output message="tns:getCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <wsdl:input message="tns:getCasillaClienteMaxSoapIn" />
+      <wsdl:output message="tns:getCasillaClienteMaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <wsdl:input message="tns:getCasillaClienteSoapIn" />
+      <wsdl:output message="tns:getCasillaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <wsdl:input message="tns:ModificarCasillaClienteSoapIn" />
+      <wsdl:output message="tns:ModificarCasillaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <wsdl:input message="tns:LoginEmpleadoSoapIn" />
+      <wsdl:output message="tns:LoginEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <wsdl:input message="tns:getNombreEmpSoapIn" />
+      <wsdl:output message="tns:getNombreEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <wsdl:input message="tns:getApellidoEmpSoapIn" />
+      <wsdl:output message="tns:getApellidoEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <wsdl:input message="tns:CargarCSVImpuestoSoapIn" />
+      <wsdl:output message="tns:CargarCSVImpuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <wsdl:input message="tns:existeDirectorSoapIn" />
+      <wsdl:output message="tns:existeDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <wsdl:input message="tns:LoginDirectorSoapIn" />
+      <wsdl:output message="tns:LoginDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <wsdl:input message="tns:getNombreDirectorSoapIn" />
+      <wsdl:output message="tns:getNombreDirectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <wsdl:input message="tns:getApellidoDiretorSoapIn" />
+      <wsdl:output message="tns:getApellidoDiretorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="conectarServidor">
+      <soap:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarSursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <soap:operation soapAction="http://tempuri.org/Registrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <soap:operation soapAction="http://tempuri.org/existecliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <soap:operation soapAction="http://tempuri.org/LoginCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap:operation soapAction="http://tempuri.org/getNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <soap:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <soap:operation soapAction="http://tempuri.org/getCasillaClienteMax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <soap:operation soapAction="http://tempuri.org/getCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <soap:operation soapAction="http://tempuri.org/ModificarCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <soap:operation soapAction="http://tempuri.org/LoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <soap:operation soapAction="http://tempuri.org/getNombreEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <soap:operation soapAction="http://tempuri.org/getApellidoEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <soap:operation soapAction="http://tempuri.org/existeDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <soap:operation soapAction="http://tempuri.org/LoginDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <soap:operation soapAction="http://tempuri.org/getNombreDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <soap:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="conectarServidor">
+      <soap12:operation soapAction="http://tempuri.org/conectarServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSursal">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarSursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/VerificarDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSede">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoCliente">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoSucursal">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registrar">
+      <soap12:operation soapAction="http://tempuri.org/Registrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existecliente">
+      <soap12:operation soapAction="http://tempuri.org/existecliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCliente">
+      <soap12:operation soapAction="http://tempuri.org/LoginCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap12:operation soapAction="http://tempuri.org/getNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellido">
+      <soap12:operation soapAction="http://tempuri.org/getApellido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap12:operation soapAction="http://tempuri.org/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaClienteMax">
+      <soap12:operation soapAction="http://tempuri.org/getCasillaClienteMax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCasillaCliente">
+      <soap12:operation soapAction="http://tempuri.org/getCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasillaCliente">
+      <soap12:operation soapAction="http://tempuri.org/ModificarCasillaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/LoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreEmp">
+      <soap12:operation soapAction="http://tempuri.org/getNombreEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoEmp">
+      <soap12:operation soapAction="http://tempuri.org/getApellidoEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap12:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="existeDirector">
+      <soap12:operation soapAction="http://tempuri.org/existeDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDirector">
+      <soap12:operation soapAction="http://tempuri.org/LoginDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNombreDirector">
+      <soap12:operation soapAction="http://tempuri.org/getNombreDirector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApellidoDiretor">
+      <soap12:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:4767/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:4767/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
