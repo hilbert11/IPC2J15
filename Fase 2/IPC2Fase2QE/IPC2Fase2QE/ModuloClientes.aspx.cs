@@ -15,8 +15,8 @@ namespace IPC2Fase2QE
         public float comision, peso, impuesto;
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox1.Text = Session["username"].ToString();
-            TextBox2.Text = Session["CodCliente"].ToString();
+            //TextBox1.Text = Session["username"].ToString();
+            //TextBox2.Text = Session["CodCliente"].ToString();
             
         }
 
@@ -152,6 +152,11 @@ namespace IPC2Fase2QE
         protected void TextBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            FileUpload1.SaveAs(Server.MapPath("Imagenes\\" + FileUpload1.FileName + ".jpg"));
         }
     }
 }

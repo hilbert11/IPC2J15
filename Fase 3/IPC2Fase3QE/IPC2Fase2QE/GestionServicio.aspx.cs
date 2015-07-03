@@ -33,7 +33,7 @@ namespace IPC2Fase3QE
             }
             else
             {
-                MessageBox.Show("Rehaza por RECHA");
+                MessageBox.Show("Rehazado por RECHA");
             }
 
             
@@ -113,7 +113,7 @@ namespace IPC2Fase3QE
             string cadenaFinal = "";
             pdfDoc.Open();
             string strContent = cadenaFinal;
-            pdfDoc.Add(new Paragraph("                                                                                                                  FACTURA       No. 001"));
+            pdfDoc.Add(new Paragraph("                                         FACTURA       No. 001"));
             pdfDoc.Add(new Paragraph("                                                              "));
             pdfDoc.Add(new Paragraph("                                                              "));
             pdfDoc.Add(new Paragraph("                                                              "));

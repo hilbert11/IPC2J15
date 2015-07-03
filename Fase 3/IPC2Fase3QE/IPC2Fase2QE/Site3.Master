@@ -59,6 +59,7 @@
                         <li><a runat="server" href="~/CrearSucursal">Crear Sucursal</a></li>
                         <li><a runat="server" href="~/CargarCSVImpuesto">CSV Impuesto</a></li>
                         <li><a runat="server" href="~/GestionCobros">Gestion de Cobros</a></li>
+                        <li><a runat="server" href="~/GenerarReportes">Generar Reportes</a></li>
 
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

@@ -50,7 +50,7 @@ namespace IPC2Fase3QE
         //Boton para agregar a sql lo del gridView
         protected void Button3_Click(object sender, EventArgs e)
         {
-            cq.CargarCSVImpuesto(lblOculto.Text);
+            cq.CargarCSVEmpleado(lblOculto.Text);
             MessageBox.Show(lblOculto.Text);
             MessageBox.Show("Correcto");
 

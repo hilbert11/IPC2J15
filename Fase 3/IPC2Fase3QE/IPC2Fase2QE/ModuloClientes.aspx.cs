@@ -7,16 +7,20 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.IO;
+//using System.Drawing;
 
 namespace IPC2Fase3QE
 {
     public partial class ModuloClientes : System.Web.UI.Page
     {
+        ServicioReferencia.Service1 conexion = new ServicioReferencia.Service1();
+
         public float comision, peso, impuesto;
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox1.Text = Session["username"].ToString();
-            TextBox2.Text = Session["CodCliente"].ToString();
+            //TextBox1.Text = Session["username"].ToString();
+            //TextBox2.Text = Session["CodCliente"].ToString();
             
         }
 
@@ -149,9 +153,39 @@ namespace IPC2Fase3QE
             }
         }
 
-        protected void TextBox3_TextChanged(object sender, EventArgs e)
-        {
 
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            //if (FileUpload1.HasFile)
+            //{
+            //    FileUpload1.SaveAs(Server.MapPath("Imagenes\\" + FileUpload1.FileName));
+            //    lblink.Text = "/" + FileUpload1.FileName;
+            //}
+            //else
+            //{
+            //    lblink.Text = "No hay archivo";
+            //}
+
+
+            ////if (FileUpload1.HasFile)
+            ////{
+            ////    try
+            ////    {
+            ////        string filename = Path.GetFileName(FileUpload1.FileName);
+            ////        FileUpload1.SaveAs(Server.MapPath("Imagenes\\") + filename);
+            ////        lblink.Text = "/" + FileUpload1.FileName;
+            ////    }
+            ////    catch (Exception ex)
+            ////    {
+            ////        lblink.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+            ////    }
+            ////}
+
+            FileUpload1.SaveAs(Server.MapPath("ImagenesCargar\\" + FileUpload1.FileName));
+
+            lblink.Text = "/" + FileUpload1.FileName;
+
+            conexion.FacturaImagen(TextBox2.Text, lblink.Text);
         }
     }
 }

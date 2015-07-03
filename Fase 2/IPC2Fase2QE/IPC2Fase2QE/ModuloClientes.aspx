@@ -73,6 +73,12 @@
             </asp:GridView>
 
         </p>
+        <p style="height: 156px">
+
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" style="height: 23px" Text="Button" />
+
+        </p>
         <p style="height: 210px">
 
             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="None" Visible="False">

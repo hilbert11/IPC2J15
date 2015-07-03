@@ -73,6 +73,14 @@
             </asp:GridView>
 
         </p>
+        <p style="height: 156px">
+
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Aceptar" />
+            <asp:Label ID="lblink" runat="server"></asp:Label>
+            <asp:Label ID="Label5" runat="server"></asp:Label>
+
+        </p>
         <p style="height: 210px">
 
             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="None" Visible="False">
@@ -102,7 +110,7 @@
                     <asp:ControlParameter ControlID="TextBox3" Name="Cod_Paquete" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:TextBox ID="TextBox3" runat="server" Visible="False" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" Visible="False"></asp:TextBox>
 
         </p>
         <p style="height: 224px">

@@ -282,6 +282,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CargarCSVPaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVPaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarCSVPaqueteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarCSVEmpleadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="existeDirector">
         <s:complexType>
           <s:sequence>
@@ -337,6 +365,81 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="getApellidoDiretorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadoEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodEmpleado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadoEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EstadoEmpleadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturaImagen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="link" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturaImagenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FacturaImagenResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sucu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerEmpleadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sucu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroEmpleadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalSueldos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sucu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalSueldosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TotalSueldosResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -462,6 +565,18 @@
   <wsdl:message name="CargarCSVImpuestoSoapOut">
     <wsdl:part name="parameters" element="tns:CargarCSVImpuestoResponse" />
   </wsdl:message>
+  <wsdl:message name="CargarCSVPaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarCSVPaquete" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVPaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarCSVPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarCSVEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarCSVEmpleadoResponse" />
+  </wsdl:message>
   <wsdl:message name="existeDirectorSoapIn">
     <wsdl:part name="parameters" element="tns:existeDirector" />
   </wsdl:message>
@@ -485,6 +600,36 @@
   </wsdl:message>
   <wsdl:message name="getApellidoDiretorSoapOut">
     <wsdl:part name="parameters" element="tns:getApellidoDiretorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstadoEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:EstadoEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="EstadoEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EstadoEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturaImagenSoapIn">
+    <wsdl:part name="parameters" element="tns:FacturaImagen" />
+  </wsdl:message>
+  <wsdl:message name="FacturaImagenSoapOut">
+    <wsdl:part name="parameters" element="tns:FacturaImagenResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="obtenerEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NumeroEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:NumeroEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="NumeroEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:NumeroEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalSueldosSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalSueldos" />
+  </wsdl:message>
+  <wsdl:message name="TotalSueldosSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalSueldosResponse" />
   </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="conectarServidor">
@@ -567,6 +712,14 @@
       <wsdl:input message="tns:CargarCSVImpuestoSoapIn" />
       <wsdl:output message="tns:CargarCSVImpuestoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CargarCSVPaquete">
+      <wsdl:input message="tns:CargarCSVPaqueteSoapIn" />
+      <wsdl:output message="tns:CargarCSVPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVEmpleado">
+      <wsdl:input message="tns:CargarCSVEmpleadoSoapIn" />
+      <wsdl:output message="tns:CargarCSVEmpleadoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="existeDirector">
       <wsdl:input message="tns:existeDirectorSoapIn" />
       <wsdl:output message="tns:existeDirectorSoapOut" />
@@ -582,6 +735,26 @@
     <wsdl:operation name="getApellidoDiretor">
       <wsdl:input message="tns:getApellidoDiretorSoapIn" />
       <wsdl:output message="tns:getApellidoDiretorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadoEmpleado">
+      <wsdl:input message="tns:EstadoEmpleadoSoapIn" />
+      <wsdl:output message="tns:EstadoEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacturaImagen">
+      <wsdl:input message="tns:FacturaImagenSoapIn" />
+      <wsdl:output message="tns:FacturaImagenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmpleado">
+      <wsdl:input message="tns:obtenerEmpleadoSoapIn" />
+      <wsdl:output message="tns:obtenerEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NumeroEmpleado">
+      <wsdl:input message="tns:NumeroEmpleadoSoapIn" />
+      <wsdl:output message="tns:NumeroEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalSueldos">
+      <wsdl:input message="tns:TotalSueldosSoapIn" />
+      <wsdl:output message="tns:TotalSueldosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
@@ -766,6 +939,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargarCSVPaquete">
+      <soap:operation soapAction="http://tempuri.org/CargarCSVPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVEmpleado">
+      <soap:operation soapAction="http://tempuri.org/CargarCSVEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="existeDirector">
       <soap:operation soapAction="http://tempuri.org/existeDirector" style="document" />
       <wsdl:input>
@@ -795,6 +986,51 @@
     </wsdl:operation>
     <wsdl:operation name="getApellidoDiretor">
       <soap:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadoEmpleado">
+      <soap:operation soapAction="http://tempuri.org/EstadoEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturaImagen">
+      <soap:operation soapAction="http://tempuri.org/FacturaImagen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmpleado">
+      <soap:operation soapAction="http://tempuri.org/obtenerEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroEmpleado">
+      <soap:operation soapAction="http://tempuri.org/NumeroEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalSueldos">
+      <soap:operation soapAction="http://tempuri.org/TotalSueldos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -985,6 +1221,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargarCSVPaquete">
+      <soap12:operation soapAction="http://tempuri.org/CargarCSVPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/CargarCSVEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="existeDirector">
       <soap12:operation soapAction="http://tempuri.org/existeDirector" style="document" />
       <wsdl:input>
@@ -1014,6 +1268,51 @@
     </wsdl:operation>
     <wsdl:operation name="getApellidoDiretor">
       <soap12:operation soapAction="http://tempuri.org/getApellidoDiretor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadoEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/EstadoEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturaImagen">
+      <soap12:operation soapAction="http://tempuri.org/FacturaImagen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/obtenerEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/NumeroEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalSueldos">
+      <soap12:operation soapAction="http://tempuri.org/TotalSueldos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

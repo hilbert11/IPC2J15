@@ -274,7 +274,7 @@
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 302px">
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Cod_Empleado" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyNames="Cod_Empleado" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Visible="False">
                         <AlternatingRowStyle BackColor="PaleGoldenrod" />
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" />
@@ -365,6 +365,22 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
+
+
+    </div>
+    <div>
+
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource5" DataTextField="Cod_Empleado" DataValueField="Cod_Empleado" Height="25px" Width="178px">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Empleados]"></asp:SqlDataSource>
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" CssClass="btn btn-success" />
+
+    </div>
+    <div>
+
+        <br />
+                    <asp:Label ID="Label8" runat="server" Font-Names="Calisto MT" Font-Overline="True" Font-Size="XX-Large" Text="Autorizar Pre Carga"></asp:Label>
+                <br />
 
     </div>
 </asp:Content>

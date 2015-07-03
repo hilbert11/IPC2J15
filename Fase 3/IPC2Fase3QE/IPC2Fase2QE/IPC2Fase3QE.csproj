@@ -163,7 +163,9 @@
     <Content Include="CrearDirector.aspx" />
     <Content Include="CrearEmpleado.aspx" />
     <Content Include="CrearLote.aspx" />
-    <Content Include="CrearPaquete.aspx" />
+    <Content Include="GenerarReportes.aspx" />
+    <Content Include="GestionBodega.aspx" />
+    <Content Include="GestionPaquete.aspx" />
     <Content Include="CrearSede.aspx" />
     <Content Include="CrearSucursal.aspx" />
     <Content Include="GestionCobros.aspx" />
@@ -298,12 +300,26 @@
     <Compile Include="CrearLote.aspx.designer.cs">
       <DependentUpon>CrearLote.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrearPaquete.aspx.cs">
-      <DependentUpon>CrearPaquete.aspx</DependentUpon>
+    <Compile Include="GenerarReportes.aspx.cs">
+      <DependentUpon>GenerarReportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CrearPaquete.aspx.designer.cs">
-      <DependentUpon>CrearPaquete.aspx</DependentUpon>
+    <Compile Include="GenerarReportes.aspx.designer.cs">
+      <DependentUpon>GenerarReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionBodega.aspx.cs">
+      <DependentUpon>GestionBodega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionBodega.aspx.designer.cs">
+      <DependentUpon>GestionBodega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPaquete.aspx.cs">
+      <DependentUpon>GestionPaquete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionPaquete.aspx.designer.cs">
+      <DependentUpon>GestionPaquete.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrearSede.aspx.cs">
       <DependentUpon>CrearSede.aspx</DependentUpon>
@@ -488,6 +504,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ImagenesCargar\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

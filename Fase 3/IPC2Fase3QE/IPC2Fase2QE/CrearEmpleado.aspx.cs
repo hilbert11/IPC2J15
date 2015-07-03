@@ -21,10 +21,11 @@ namespace IPC2Fase3QE
 
             int codsucursal = conexion.ObtenerCodigoSucursal(DropDownList2.Text);
             int coddepto = conexion.ObtenerCodigoDepartamento(DropDownList3.Text);
+            string estadoEmp = "Contratado";
             //int popo = conexion.VerificarDepartamento(TextBox10.Text, conexion.SeleccionarSursal(DropDownList2.Text));
             String Tabla = "Empleados";
-            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Usuario, Contraseña, Rol, Cod_Sucursal, Cod_Departamento";
-            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "','" + DropDownList1.Text + "','" + codsucursal + "','" + coddepto + "'";
+            String Campos = "Nombres, Apellidos, DPI, Direccion, Telefono, Correo, Sueldo, Usuario, Contraseña, Rol, Cod_Sucursal, Cod_Departamento, Estado";
+            String Valores = "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "','" + DropDownList1.Text + "','" + codsucursal + "','" + coddepto + "','" + estadoEmp + "'";
 
             this.TextBox1.Text = "";
             this.TextBox2.Text = "";

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Crear Paquete" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="CrearPaquete.aspx.cs" Inherits="IPC2Fase3QE.CrearPaquete" %>
+﻿<%@ Page Title="Crear Paquete" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="GestionPaquete.aspx.cs" Inherits="IPC2Fase3QE.CrearPaquete" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

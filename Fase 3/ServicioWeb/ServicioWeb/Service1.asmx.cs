@@ -679,7 +679,7 @@ namespace ServicioWeb
             }
             return nombre;
         }
-//Cargar archivo CSV
+//Cargar archivo CSV IMPUESTO
 //nombretabla = nombre de nuestra tabla
 //'ruta/del/archivo' = Donde esté ubicado nuestro archivo csv.
 //firstrow=2 = Este parámetro es opcional. Indicamos que empieze a importar a partir de la segunda línea. Se suele utilizar porque normalmente la primera columna indica el nombre de la columna.
@@ -727,6 +727,92 @@ namespace ServicioWeb
             }
             return respuesta;
         }
+    //Cargar archivo CSV PAQUETE
+    [WebMethod]
+    public bool CargarCSVPaquete(string path)
+    {
+        bool respuesta = false;
+        try
+        {
+            SqlCommand verificar = new SqlCommand();
+            verificar.Connection = conexion;
+            verificar.CommandText = "BULK INSERT dbo.Paquete FROM '" + path + "' WITH (FIELDTERMINATOR = ',', ROWTERMINATOR = '\n' )";
+
+            conectarServidor();
+
+            if (conectarServidor())
+            {
+                if (verificar.ExecuteNonQuery() == 1)
+                {
+                    respuesta = true;
+                }
+
+                else
+                {
+                    respuesta = false;
+                }
+
+
+            }
+            else
+            {
+                respuesta = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            respuesta = false;
+            mostrarError = "Error" + ex.Message.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return respuesta;
+    }
+    //Cargar archivo CSV EMPLEADO
+    [WebMethod]
+    public bool CargarCSVEmpleado(string path)
+    {
+        bool respuesta = false;
+        try
+        {
+            SqlCommand verificar = new SqlCommand();
+            verificar.Connection = conexion;
+            verificar.CommandText = "BULK INSERT dbo.Empleados FROM '" + path + "' WITH (FIELDTERMINATOR = ',', ROWTERMINATOR = '\n' )";
+
+            conectarServidor();
+
+            if (conectarServidor())
+            {
+                if (verificar.ExecuteNonQuery() == 1)
+                {
+                    respuesta = true;
+                }
+
+                else
+                {
+                    respuesta = false;
+                }
+
+
+            }
+            else
+            {
+                respuesta = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            respuesta = false;
+            mostrarError = "Error" + ex.Message.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return respuesta;
+    }
     //Verifica El director en la base de datos para hacer sesion
     [WebMethod]
     public bool existeDirector(string user)
@@ -858,6 +944,178 @@ namespace ServicioWeb
         }
         return nombre;
     }
+    //Update que actualiza el estado del empleado.
+    [WebMethod]
+    public bool EstadoEmpleado(int CodEmpleado, string Estado)
+    {
+        bool respuesta = false;
+        try
+        {
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = conexion;
+            cm.CommandText = "Update Empleados Set Estado='" + Estado + "' Where Cod_Empleado='" + CodEmpleado + "'";
+            conectarServidor();
+
+            if (conectarServidor())
+            {
+                if (cm.ExecuteNonQuery() == 1)
+                    respuesta = true;
+                else
+                    respuesta = false;
+
+            }
+            else
+            {
+                respuesta = false;
+            }
+
+        }
+        catch (Exception e)
+        {
+            respuesta = false;
+            //MostrarError = "Erro: " + e.Message.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+
+        return respuesta;
+    }
+        //Facturar de acuerdo a la imagen ingresada
+    [WebMethod]
+    public bool FacturaImagen(string CodCliente, string link)
+    {
+        bool respuesta = false;
+        try
+        {
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = conexion;
+            cm.CommandText = "Update Clientes Set Factura='" + link + "' Where Cod_Cliente='" + CodCliente + "'";
+            conectarServidor();
+
+            if (conectarServidor())
+            {
+                if (cm.ExecuteNonQuery() == 1)
+                    respuesta = true;
+                else
+                    respuesta = false;
+
+            }
+            else
+            {
+                respuesta = false;
+            }
+
+        }
+        catch (Exception e)
+        {
+            respuesta = false;
+            //MostrarError = "Erro: " + e.Message.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+
+        return respuesta;
+    }
+    //Para REPORTE DE EMPLEADO -----------*-*------------------------------------------------------
+    //Obtiene la sucursal del empleado
+    public DataTable tablaDatos = new DataTable();
+    [WebMethod]
+    public string obtenerEmpleado(string nombre, int sucu)
+    {
+        string jaga = "Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True";
+        SqlConnection conectar = new SqlConnection(jaga);
+        conectar.Open();
+        SqlDataAdapter cmd = new SqlDataAdapter("select * from " + nombre + " where Cod_sucursal = " + sucu + ";", conectar);
+
+
+        DataSet data = new DataSet();
+
+        cmd.Fill(data, "datos");
+        tablaDatos = data.Tables[0];
+
+        string registro = "";
+
+        for (int icampo = 0; icampo < tablaDatos.Rows.Count; icampo++)
+        {
+            Array a = tablaDatos.Rows[icampo].ItemArray;
+            for (int indice = 0; indice < a.Length; indice++)
+            {
+                registro += a.GetValue(indice).ToString() + ", ";
+            }
+
+            registro += " </p> </p>";
+        }
+        return registro;
+
+    }
+
+
+    //Total de numero de empleados
+    [WebMethod]
+    public string NumeroEmpleado(string nombre, int sucu)
+    {
+        string jaga = "Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True";
+        SqlConnection conectar = new SqlConnection(jaga);
+        conectar.Open();
+        SqlDataAdapter cmd = new SqlDataAdapter("select Count (*) from " + nombre + " where Cod_sucursal = " + sucu + ";", conectar);
+
+
+        DataSet data = new DataSet();
+
+        cmd.Fill(data, "datos");
+        tablaDatos = data.Tables[0];
+
+        string registro = "";
+
+        for (int icampo = 0; icampo < tablaDatos.Rows.Count; icampo++)
+        {
+            Array a = tablaDatos.Rows[icampo].ItemArray;
+            for (int indice = 0; indice < a.Length; indice++)
+            {
+                registro += a.GetValue(indice).ToString() + ", ";
+            }
+
+            registro += " </p>  </p> </p>";
+        }
+        return registro;
+
+    }
+
+    //Total de sueldo de los empleados
+    [WebMethod]
+    public string TotalSueldos(string nombre, int sucu)
+    {
+        string jaga = "Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True";
+        SqlConnection conectar = new SqlConnection(jaga);
+        conectar.Open();
+        SqlDataAdapter cmd = new SqlDataAdapter("Select Sum (Sueldo) from Empleados where Cod_sucursal = " + sucu, conectar);
+
+
+        DataSet data = new DataSet();
+
+        cmd.Fill(data, "datos");
+        tablaDatos = data.Tables[0];
+
+        string registro = "";
+
+        for (int icampo = 0; icampo < tablaDatos.Rows.Count; icampo++)
+        {
+            Array a = tablaDatos.Rows[icampo].ItemArray;
+            for (int indice = 0; indice < a.Length; indice++)
+            {
+                registro += a.GetValue(indice).ToString() + ", ";
+            }
+
+            registro += " </p>";
+        }
+        return registro;
+
+    }
+
 
         
     }
