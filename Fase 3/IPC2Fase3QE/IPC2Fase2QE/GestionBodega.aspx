@@ -50,6 +50,8 @@
                 <asp:BoundField DataField="Casilla" HeaderText="Casilla" SortExpression="Casilla" />
                 <asp:ImageField DataImageUrlField="Factura" DataImageUrlFormatString="~/Imagenes/{0}" HeaderText="Imagen">
                 </asp:ImageField>
+                <asp:ImageField DataImageUrlFormatString="~/Imagenes/{0}">
+                </asp:ImageField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="Select * From Clientes"></asp:SqlDataSource>

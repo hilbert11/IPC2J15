@@ -73,12 +73,18 @@
             </asp:GridView>
 
         </p>
+        <p style="height: 59px">
+
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Button" />
+
+        </p>
         <p style="height: 156px">
 
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Aceptar" />
-            <asp:Label ID="lblink" runat="server"></asp:Label>
-            <asp:Label ID="Label5" runat="server"></asp:Label>
+            <asp:FileUpload ID="FileUpload1" runat="server" Visible="False" />
+            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Aceptar" Visible="False" />
+            <asp:Label ID="lblink" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="Label5" runat="server" Visible="False"></asp:Label>
 
         </p>
         <p style="height: 210px">

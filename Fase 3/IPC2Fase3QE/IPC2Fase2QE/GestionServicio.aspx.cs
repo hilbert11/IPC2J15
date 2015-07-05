@@ -18,6 +18,7 @@ namespace IPC2Fase3QE
         ServicioReferencia.Service1 conexion = new ServicioReferencia.Service1();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblUsuario.Text = Session["CodCliente"].ToString();
 
         }
 
@@ -93,9 +94,30 @@ namespace IPC2Fase3QE
             }
             con21.Close();
 
+            //////////////////////////////////////Sacando info del paquete
 
-            GridView4.Visible = true;
-            Button5.Visible = true;
+            int codPaquete;
+
+            SqlConnection con22 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
+            String instruccion = "Select * from Paquete where Cod_Paquete='" + lblUsuario.Text + "' ";
+            SqlCommand comando2 = new SqlCommand(instruccion, con22);
+            con22.Open();
+            SqlDataReader leer2 = comando1.ExecuteReader();
+            if (leer2.Read() == true)
+            {
+
+                codPaquete = Convert.ToInt32(leer1["Cod_Paquete"]);
+                lblUsuario.Text = Convert.ToInt32(codPaquete).ToString();
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("Error D:");
+            }
+            con22.Close();
+
         }
 
         protected void GridView4_SelectedIndexChanged(object sender, EventArgs e)

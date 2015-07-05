@@ -205,6 +205,44 @@ namespace ServicioWeb
             }
             return cant;
         }
+        //Obtiene el codigo de Impuesto
+        [WebMethod]
+        public int ObtenerCodigoImpuesto(string nombrecategoria)
+        {
+
+            int cant = 0;
+            Boolean respuesta;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "SELECT Cod_impuesto FROM Impuesto where Categoria='" + nombrecategoria + "'";
+                conectarServidor();
+                cant = Convert.ToInt32(cm.ExecuteScalar());
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return cant;
+        }
         //Obtiene el codigo del Departamento
         [WebMethod]
         public int ObtenerCodigoDepartamento(string nombredepartamento)
@@ -1115,7 +1153,75 @@ namespace ServicioWeb
         return registro;
 
     }
+///Verificicar estado del paquete
+    [WebMethod]
+    public int VerificarEstadopaqueteCliente(int codPaquete)
+    {
+        int estadocliente = 1;
+        int cant = 0;
+        Boolean respuesta;
+        try
+        {
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = conexion;
+            cm.CommandText = "SELECT COUNT(*) FROM Paquete where EstadoModificacion='" + estadocliente + "' and Cod_Paquete='" + codPaquete + "'";
+            conectarServidor();
+            cant = Convert.ToInt32(cm.ExecuteScalar());
+            if (conectarServidor())
+            {
+                if (cm.ExecuteNonQuery() == 1)
+                    respuesta = true;
+                else
+                    respuesta = false;
+            }
+            else
+            {
+                respuesta = false;
+            }
+        }
+        catch (Exception e)
+        {
+            respuesta = false;
+            MostrarError = "Erro: " + e.Message.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return cant;
+    }
+        //Estado del empleado
+        [WebMethod]
+    public string getEstadoEmpleado(string user)
+    {
+        DataSet ds = new DataSet();
+        string nombre = "";
 
+        try
+        {
+            string instruccion = "SELECT Estado From Empleados WHERE Usuario='" + user + "'";
+            SqlDataAdapter adp1 = new SqlDataAdapter(instruccion, conexion);
+            if (conectarServidor())
+            {
+                adp1.Fill(ds, "Empleados");
+                nombre = ds.Tables[0].Rows[0][0].ToString();
+
+            }
+            else
+            {
+                nombre = "Sin conexion";
+            }
+        }
+        catch (Exception ex)
+        {
+            nombre = ex.ToString();
+        }
+        finally
+        {
+            conexion.Close();
+        }
+        return nombre;
+    }
 
         
     }

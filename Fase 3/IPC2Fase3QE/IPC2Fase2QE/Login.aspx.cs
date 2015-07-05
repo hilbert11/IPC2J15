@@ -65,21 +65,29 @@ namespace IPC2Fase3QE
             }
             else if (DropDownList1.Text == "Empleado")
             {
-                
-                //int codigo = Convert.ToInt32(UserName.Text);
-
-                if (cq.LoginEmpleado(usuario, contraseña, rol) == 1)
+                if (cq.getEstadoEmpleado(UserName.Text).Equals("Despedido"))
                 {
-                    Session["NombreEmpleado"] = cq.getNombreEmp(UserName.Text);
-                    Session["ApellidoEmpleado"] = cq.getApellidoEmp(UserName.Text);
-                    Response.Redirect("ModuloEmpleado.aspx");
-                    MessageBox.Show("Hola Emppleado :)");
-
+                    MessageBox.Show("Usted esta DESEMPLEADO :(");
                 }
                 else
                 {
-                    MessageBox.Show("Error como Empleado");
+                    //int codigo = Convert.ToInt32(UserName.Text);
+
+                    if (cq.LoginEmpleado(usuario, contraseña, rol) == 1)
+                    {
+                        Session["NombreEmpleado"] = cq.getNombreEmp(UserName.Text);
+                        Session["ApellidoEmpleado"] = cq.getApellidoEmp(UserName.Text);
+                        Response.Redirect("ModuloEmpleado.aspx");
+                        MessageBox.Show("Hola Emppleado :)");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error como Empleado");
+                    }
                 }
+                
+
 
             }
             else if (DropDownList1.Text == "Administrador")

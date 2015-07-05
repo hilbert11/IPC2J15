@@ -39,6 +39,8 @@ namespace IPC2Fase3QE.ServicioReferencia {
         
         private System.Threading.SendOrPostCallback ObtenerCodigoClienteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ObtenerCodigoImpuestoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ObtenerCodigoDepartamentoOperationCompleted;
         
         private System.Threading.SendOrPostCallback ObtenerCodigoSucursalOperationCompleted;
@@ -90,6 +92,10 @@ namespace IPC2Fase3QE.ServicioReferencia {
         private System.Threading.SendOrPostCallback NumeroEmpleadoOperationCompleted;
         
         private System.Threading.SendOrPostCallback TotalSueldosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VerificarEstadopaqueteClienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getEstadoEmpleadoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -143,6 +149,9 @@ namespace IPC2Fase3QE.ServicioReferencia {
         
         /// <remarks/>
         public event ObtenerCodigoClienteCompletedEventHandler ObtenerCodigoClienteCompleted;
+        
+        /// <remarks/>
+        public event ObtenerCodigoImpuestoCompletedEventHandler ObtenerCodigoImpuestoCompleted;
         
         /// <remarks/>
         public event ObtenerCodigoDepartamentoCompletedEventHandler ObtenerCodigoDepartamentoCompleted;
@@ -221,6 +230,12 @@ namespace IPC2Fase3QE.ServicioReferencia {
         
         /// <remarks/>
         public event TotalSueldosCompletedEventHandler TotalSueldosCompleted;
+        
+        /// <remarks/>
+        public event VerificarEstadopaqueteClienteCompletedEventHandler VerificarEstadopaqueteClienteCompleted;
+        
+        /// <remarks/>
+        public event getEstadoEmpleadoCompletedEventHandler getEstadoEmpleadoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/conectarServidor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -364,6 +379,35 @@ namespace IPC2Fase3QE.ServicioReferencia {
             if ((this.ObtenerCodigoClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ObtenerCodigoClienteCompleted(this, new ObtenerCodigoClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ObtenerCodigoImpuesto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ObtenerCodigoImpuesto(string nombrecategoria) {
+            object[] results = this.Invoke("ObtenerCodigoImpuesto", new object[] {
+                        nombrecategoria});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoImpuestoAsync(string nombrecategoria) {
+            this.ObtenerCodigoImpuestoAsync(nombrecategoria, null);
+        }
+        
+        /// <remarks/>
+        public void ObtenerCodigoImpuestoAsync(string nombrecategoria, object userState) {
+            if ((this.ObtenerCodigoImpuestoOperationCompleted == null)) {
+                this.ObtenerCodigoImpuestoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnObtenerCodigoImpuestoOperationCompleted);
+            }
+            this.InvokeAsync("ObtenerCodigoImpuesto", new object[] {
+                        nombrecategoria}, this.ObtenerCodigoImpuestoOperationCompleted, userState);
+        }
+        
+        private void OnObtenerCodigoImpuestoOperationCompleted(object arg) {
+            if ((this.ObtenerCodigoImpuestoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ObtenerCodigoImpuestoCompleted(this, new ObtenerCodigoImpuestoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1148,6 +1192,64 @@ namespace IPC2Fase3QE.ServicioReferencia {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/VerificarEstadopaqueteCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int VerificarEstadopaqueteCliente(int codPaquete) {
+            object[] results = this.Invoke("VerificarEstadopaqueteCliente", new object[] {
+                        codPaquete});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void VerificarEstadopaqueteClienteAsync(int codPaquete) {
+            this.VerificarEstadopaqueteClienteAsync(codPaquete, null);
+        }
+        
+        /// <remarks/>
+        public void VerificarEstadopaqueteClienteAsync(int codPaquete, object userState) {
+            if ((this.VerificarEstadopaqueteClienteOperationCompleted == null)) {
+                this.VerificarEstadopaqueteClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVerificarEstadopaqueteClienteOperationCompleted);
+            }
+            this.InvokeAsync("VerificarEstadopaqueteCliente", new object[] {
+                        codPaquete}, this.VerificarEstadopaqueteClienteOperationCompleted, userState);
+        }
+        
+        private void OnVerificarEstadopaqueteClienteOperationCompleted(object arg) {
+            if ((this.VerificarEstadopaqueteClienteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VerificarEstadopaqueteClienteCompleted(this, new VerificarEstadopaqueteClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getEstadoEmpleado", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getEstadoEmpleado(string user) {
+            object[] results = this.Invoke("getEstadoEmpleado", new object[] {
+                        user});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getEstadoEmpleadoAsync(string user) {
+            this.getEstadoEmpleadoAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void getEstadoEmpleadoAsync(string user, object userState) {
+            if ((this.getEstadoEmpleadoOperationCompleted == null)) {
+                this.getEstadoEmpleadoOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetEstadoEmpleadoOperationCompleted);
+            }
+            this.InvokeAsync("getEstadoEmpleado", new object[] {
+                        user}, this.getEstadoEmpleadoOperationCompleted, userState);
+        }
+        
+        private void OngetEstadoEmpleadoOperationCompleted(object arg) {
+            if ((this.getEstadoEmpleadoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getEstadoEmpleadoCompleted(this, new getEstadoEmpleadoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1283,6 +1385,32 @@ namespace IPC2Fase3QE.ServicioReferencia {
         private object[] results;
         
         internal ObtenerCodigoClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void ObtenerCodigoImpuestoCompletedEventHandler(object sender, ObtenerCodigoImpuestoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ObtenerCodigoImpuestoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ObtenerCodigoImpuestoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1959,6 +2087,58 @@ namespace IPC2Fase3QE.ServicioReferencia {
         private object[] results;
         
         internal TotalSueldosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void VerificarEstadopaqueteClienteCompletedEventHandler(object sender, VerificarEstadopaqueteClienteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VerificarEstadopaqueteClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal VerificarEstadopaqueteClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void getEstadoEmpleadoCompletedEventHandler(object sender, getEstadoEmpleadoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getEstadoEmpleadoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getEstadoEmpleadoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

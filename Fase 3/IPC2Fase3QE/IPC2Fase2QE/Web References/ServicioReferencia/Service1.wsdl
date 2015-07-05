@@ -69,6 +69,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ObtenerCodigoImpuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombrecategoria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCodigoImpuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCodigoImpuestoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ObtenerCodigoDepartamento">
         <s:complexType>
           <s:sequence>
@@ -443,6 +457,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="VerificarEstadopaqueteCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codPaquete" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarEstadopaqueteClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarEstadopaqueteClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEstadoEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEstadoEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEstadoEmpleadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="conectarServidorSoapIn">
@@ -474,6 +516,12 @@
   </wsdl:message>
   <wsdl:message name="ObtenerCodigoClienteSoapOut">
     <wsdl:part name="parameters" element="tns:ObtenerCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoImpuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoImpuesto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCodigoImpuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCodigoImpuestoResponse" />
   </wsdl:message>
   <wsdl:message name="ObtenerCodigoDepartamentoSoapIn">
     <wsdl:part name="parameters" element="tns:ObtenerCodigoDepartamento" />
@@ -631,6 +679,18 @@
   <wsdl:message name="TotalSueldosSoapOut">
     <wsdl:part name="parameters" element="tns:TotalSueldosResponse" />
   </wsdl:message>
+  <wsdl:message name="VerificarEstadopaqueteClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarEstadopaqueteCliente" />
+  </wsdl:message>
+  <wsdl:message name="VerificarEstadopaqueteClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarEstadopaqueteClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEstadoEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:getEstadoEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="getEstadoEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:getEstadoEmpleadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="conectarServidor">
       <wsdl:input message="tns:conectarServidorSoapIn" />
@@ -651,6 +711,10 @@
     <wsdl:operation name="ObtenerCodigoCliente">
       <wsdl:input message="tns:ObtenerCodigoClienteSoapIn" />
       <wsdl:output message="tns:ObtenerCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoImpuesto">
+      <wsdl:input message="tns:ObtenerCodigoImpuestoSoapIn" />
+      <wsdl:output message="tns:ObtenerCodigoImpuestoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerCodigoDepartamento">
       <wsdl:input message="tns:ObtenerCodigoDepartamentoSoapIn" />
@@ -756,6 +820,14 @@
       <wsdl:input message="tns:TotalSueldosSoapIn" />
       <wsdl:output message="tns:TotalSueldosSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="VerificarEstadopaqueteCliente">
+      <wsdl:input message="tns:VerificarEstadopaqueteClienteSoapIn" />
+      <wsdl:output message="tns:VerificarEstadopaqueteClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEstadoEmpleado">
+      <wsdl:input message="tns:getEstadoEmpleadoSoapIn" />
+      <wsdl:output message="tns:getEstadoEmpleadoSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -797,6 +869,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCodigoCliente">
       <soap:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoImpuesto">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCodigoImpuesto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1038,6 +1119,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="VerificarEstadopaqueteCliente">
+      <soap:operation soapAction="http://tempuri.org/VerificarEstadopaqueteCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstadoEmpleado">
+      <soap:operation soapAction="http://tempuri.org/getEstadoEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1079,6 +1178,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCodigoCliente">
       <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCodigoImpuesto">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCodigoImpuesto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1313,6 +1421,24 @@
     </wsdl:operation>
     <wsdl:operation name="TotalSueldos">
       <soap12:operation soapAction="http://tempuri.org/TotalSueldos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarEstadopaqueteCliente">
+      <soap12:operation soapAction="http://tempuri.org/VerificarEstadopaqueteCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstadoEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/getEstadoEmpleado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

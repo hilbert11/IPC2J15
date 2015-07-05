@@ -10,6 +10,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
+
 namespace IPC2Fase3QE
 {
     public partial class GenerarReportes : System.Web.UI.Page
@@ -20,84 +25,48 @@ namespace IPC2Fase3QE
 
         }
 
+
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            //SqlConnection con;
+            //String MiConexion = null;
+            //MiConexion = "Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True";
+            //con = new SqlConnection(MiConexion);
+            //con.Open();
+
+            //string SQL = null;
+            //SQL = "Select * From Reporte1 ORDER BY firstname";
+            //SqlDataAdapter myDa = new SqlDataAdapter(SQL, con);
+            //con.Close();
+
+            //DataSet1 ds = new DataSet1();
+            //myDa.Fill(ds, "Reporte1");
+
+            //ReportDocument myRPT = new ReportDocument();
+            //myRPT.Load(Server.MapPath("~/Reporte1.rpt"));
+            //myRPT.SetDataSource(ds);
+
+            //CrystalReportViewer1.ReportSource = myRPT;
+
+
+            Response.Redirect("Reporte1.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporte2.aspx");
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Document pdfDoc = new Document(PageSize.A4, 10, 10, 10, 10);
+            Response.Redirect("Reporte3.aspx");
+        }
 
-            //try
-            //{
-            //    PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
-
-            //    //Open PDF Document to write data 
-            //    pdfDoc.Open();
-            //    ////Reportar rep = new Reportar();
-            //    string cadenaFinal = "REPORTE PARA DEPARTAMENTO: " + DropDepartamento.SelectedValue.ToString() + " Y NÚMERO DE SUCURSAL: " + DropSucursal.SelectedValue.ToString() + " </p>.  </p> . </p>.  </p> ";
-            //    cadenaFinal += conexion.obtenerEmpleado("Empleado", Convert.ToInt32(DropSucursal.SelectedValue));
-
-            //    cadenaFinal += "</p>.  </p>.  </p> Número de Empleados:    " + conexion.NumeroEmpleado("Empleado", Convert.ToInt32(DropSucursal.SelectedValue));
-
-            //    cadenaFinal += "</p>.  </p>.  </p> Sueldo Total: " + conexion.TotalSueldos("Empleado", Convert.ToInt32(DropSucursal.SelectedValue));
-
-            //    //Assign Html content in a string to write in PDF 
-            //    string strContent = cadenaFinal;
-
-            //    //Read string contents using stream reader and convert html to parsed conent 
-            //    var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(strContent), null);
-
-            //    //Get each array values from parsed elements and add to the PDF document 
-            //    foreach (var htmlElement in parsedHtmlElements)
-            //        pdfDoc.Add(htmlElement as IElement);
-
-            //    //Close your PDF 
-            //    pdfDoc.Close();
-
-            //    Response.ContentType = "application/pdf";
-
-            //    //Set default file Name as current datetime 
-            //    Response.AddHeader("content-disposition", "attachment; filename=DEMO.pdf");
-            //    System.Web.HttpContext.Current.Response.Write(pdfDoc);
-
-            //    Response.Flush();
-            //    Response.End();
-            //            catch (Exception ex)
-            //{
-               
-            //}
-
-                iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10, 10, 10, 10);
-
-                iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
-
-                string cadenaFinal = "";
-                pdfDoc.Open();
-                int codSucursal = Convert.ToInt32(DropSucursal.SelectedValue);
-            
-                string strContent = cadenaFinal;
-                pdfDoc.Add(new Paragraph("REPORTE PARA DEPARTAMENTO: " + DropDepartamento.SelectedValue.ToString() + " Y NÚMERO DE SUCURSAL: " + DropSucursal.SelectedValue.ToString()));
-                pdfDoc.Add(new Paragraph("Número de Empleados:    " + conexion.NumeroEmpleado("Empleados", codSucursal)));
-                pdfDoc.Add(new Paragraph("Sueldo Total: " + conexion.TotalSueldos("Empleados", codSucursal)));
-
-
-                //Read string contents using stream reader and convert html to parsed conent 
-                var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(strContent), null);
-
-                //Get each array values from parsed elements and add to the PDF document 
-                foreach (var htmlElement in parsedHtmlElements)
-                    pdfDoc.Add(htmlElement as IElement);
-
-                //Close your PDF 
-                pdfDoc.Close();
-
-                Response.ContentType = "application/pdf";
-
-                //Set default file Name as current datetime 
-                Response.AddHeader("content-disposition", "attachment; filename=FACTURA.pdf");
-                System.Web.HttpContext.Current.Response.Write(pdfDoc);
-
-                Response.Flush();
-                Response.End();
-
-            }
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporte4.aspx");
+        }
 
         }
     

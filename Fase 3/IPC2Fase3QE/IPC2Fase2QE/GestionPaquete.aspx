@@ -6,41 +6,140 @@
     <div>
         <table style="width:100%;">
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     &nbsp;</td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
-                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource3" DefaultMode="Insert" Height="50px" Width="125px" GridLines="Vertical">
-                        <AlternatingRowStyle BackColor="#DCDCDC" />
-                        <EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-                        <Fields>
-                            <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" InsertVisible="False" ReadOnly="True" SortExpression="Cod_Paquete" Visible="False" />
-                            <asp:BoundField DataField="Peso" HeaderText="Peso" SortExpression="Peso" />
-                            <asp:BoundField DataField="Valor" HeaderText="Valor" SortExpression="Valor" />
-                            <asp:BoundField DataField="Costo" HeaderText="Costo" SortExpression="Costo" />
-                            <asp:BoundField DataField="Impuesto" HeaderText="Impuesto" SortExpression="Impuesto" />
-                            <asp:BoundField DataField="Comision" HeaderText="Comision" SortExpression="Comision" />
-                            <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
-                            <asp:BoundField DataField="Stock" HeaderText="Stock" SortExpression="Stock" />
-                            <asp:BoundField DataField="Cod_Cliente" HeaderText="Cod_Cliente" SortExpression="Cod_Cliente" />
-                            <asp:BoundField DataField="Cod_Lote" HeaderText="Cod_Lote" SortExpression="Cod_Lote" />
-                            <asp:CommandField ShowInsertButton="True" />
-                        </Fields>
-                        <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                        <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-                    </asp:DetailsView>
+                <td style="width: 388px">
+
+        <table style="width:100%;">
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label1" runat="server" Text="Peso"></asp:Label>
                 </td>
-                <td style="width: 141px">
+                <td>
+                    <asp:TextBox ID="TextBox1" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label2" runat="server" Text="Valor"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox2" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label3" runat="server" Text="Costo"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox3" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label4" runat="server" Text="Impuesto"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox4" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label5" runat="server" Text="Comision"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox5" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label6" runat="server" Text="Total"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox6" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px; height: 20px;">
+                    <asp:Label ID="Label7" runat="server" Text="Stock"></asp:Label>
+                </td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="TextBox7" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label9" runat="server" Text="Cod cliente"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource6" DataTextField="Nombre" DataValueField="Nombre" ForeColor="Black" Height="16px" Width="208px">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Clientes]"></asp:SqlDataSource>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label10" runat="server" Text="Cod lote"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="TextBox9" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px; height: 23px;">
+                    <asp:Label ID="Label8" runat="server" Text="Estado Paquete"></asp:Label>
+                </td>
+                <td style="height: 23px">
+                    <asp:TextBox ID="TextBox10" runat="server" Width="208px"></asp:TextBox>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px">
+                    <asp:Label ID="Label11" runat="server" Text="Cod Impuesto"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource7" DataTextField="Categoria" DataValueField="Categoria" ForeColor="Black" Height="16px" Width="208px">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Impuesto]"></asp:SqlDataSource>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 258px; height: 5px;">
+                    <asp:Label ID="Label12" runat="server" Text="Cod Sucursal"></asp:Label>
+                </td>
+                <td style="height: 5px">
+                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource8" DataTextField="Nombre_sucursal" DataValueField="Nombre_sucursal" ForeColor="Black" Height="16px" Width="208px">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Sucursal]"></asp:SqlDataSource>
+                </td>
+            </tr>
+
+
+        </table>
+                </td>
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
+                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Clientes]"></asp:SqlDataSource>
                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="Cod_Cliente" DataSourceID="SqlDataSource5">
                         <Columns>
                             <asp:BoundField DataField="Cod_Cliente" HeaderText="Cod_Cliente" InsertVisible="False" ReadOnly="True" SortExpression="Cod_Cliente" />
@@ -64,14 +163,16 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Clientes]"></asp:SqlDataSource>
-                </td>
+                    </td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
-                    &nbsp;</td>
-                <td style="width: 141px">
+                <td style="width: 388px">
+
+            <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-default" OnClick="Button1_Click" />
+
+                </td>
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lote" DataSourceID="SqlDataSource4">
@@ -85,16 +186,16 @@
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     &nbsp;</td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="Cod_Lote" DataSourceID="SqlDataSource4" DefaultMode="Insert" Height="50px" Width="125px">
                         <Fields>
                             <asp:BoundField DataField="Cod_Lote" HeaderText="Cod_Lote" InsertVisible="False" ReadOnly="True" SortExpression="Cod_Lote" />
@@ -104,72 +205,72 @@
                         </Fields>
                     </asp:DetailsView>
                 </td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     &nbsp;</td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px; height: 20px;">
+                <td style="width: 388px; height: 20px;">
                     &nbsp;</td>
-                <td style="height: 20px; width: 141px;">
+                <td style="height: 20px; width: 82px;">
                     &nbsp;</td>
                 <td style="height: 20px">
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     &nbsp;</td>
-                <td style="width: 141px">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-
-            <tr>
-                <td style="width: 154px">
-                    &nbsp;</td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
+                    &nbsp;</td>
+                <td style="width: 82px">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+
+            <tr>
+                <td style="width: 388px">
 
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Clientes]"></asp:SqlDataSource>
 
                 </td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Lote]"></asp:SqlDataSource>
                 </td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" DeleteCommand="DELETE FROM [Paquete] WHERE [Cod_Paquete] = @Cod_Paquete" InsertCommand="INSERT INTO [Paquete] ([Peso], [Valor], [Costo], [Impuesto], [Comision], [Total], [Stock], [Cod_Cliente], [Cod_Lote]) VALUES (@Peso, @Valor, @Costo, @Impuesto, @Comision, @Total, @Stock, @Cod_Cliente, @Cod_Lote)" SelectCommand="SELECT * FROM [Paquete]" UpdateCommand="UPDATE [Paquete] SET [Peso] = @Peso, [Valor] = @Valor, [Costo] = @Costo, [Impuesto] = @Impuesto, [Comision] = @Comision, [Total] = @Total, [Stock] = @Stock, [Cod_Cliente] = @Cod_Cliente, [Cod_Lote] = @Cod_Lote WHERE [Cod_Paquete] = @Cod_Paquete">
                         <DeleteParameters>
                             <asp:Parameter Name="Cod_Paquete" Type="Int32" />
@@ -199,14 +300,14 @@
                         </UpdateParameters>
                     </asp:SqlDataSource>
                 </td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
 
             <tr>
-                <td style="width: 154px">
+                <td style="width: 388px">
                     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" DeleteCommand="DELETE FROM [Lote] WHERE [Cod_Lote] = @Cod_Lote" InsertCommand="INSERT INTO [Lote] ([Fecha_Envio], [Fecha_Vuelo]) VALUES (@Fecha_Envio, @Fecha_Vuelo)" SelectCommand="SELECT * FROM [Lote]" UpdateCommand="UPDATE [Lote] SET [Fecha_Envio] = @Fecha_Envio, [Fecha_Vuelo] = @Fecha_Vuelo WHERE [Cod_Lote] = @Cod_Lote">
                         <DeleteParameters>
                             <asp:Parameter Name="Cod_Lote" Type="Int32" />
@@ -223,7 +324,7 @@
                     </asp:SqlDataSource>
                     <br />
                 </td>
-                <td style="width: 141px">
+                <td style="width: 82px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>

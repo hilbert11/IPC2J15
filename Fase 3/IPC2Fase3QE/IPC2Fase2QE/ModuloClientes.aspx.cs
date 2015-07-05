@@ -19,8 +19,8 @@ namespace IPC2Fase3QE
         public float comision, peso, impuesto;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TextBox1.Text = Session["username"].ToString();
-            //TextBox2.Text = Session["CodCliente"].ToString();
+            TextBox1.Text = Session["username"].ToString();
+            TextBox2.Text = Session["CodCliente"].ToString();
             
         }
 
@@ -186,6 +186,32 @@ namespace IPC2Fase3QE
             lblink.Text = "/" + FileUpload1.FileName;
 
             conexion.FacturaImagen(TextBox2.Text, lblink.Text);
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            if (conexion.VerificarEstadopaqueteCliente(Convert.ToInt32(TextBox4.Text)) == 1)
+            {
+
+                MessageBox.Show("Aprobado si Existe");
+
+                FileUpload1.Visible = true;
+                Button6.Visible = true;
+
+
+            }
+            else if (conexion.VerificarEstadopaqueteCliente(Convert.ToInt32(TextBox4.Text)) == 0)
+            {
+
+                MessageBox.Show("Desaprobado, no existe");
+
+                FileUpload1.Visible = false;
+                Button6.Visible = false;
+            }
+            else
+            {
+
+            }
         }
     }
 }

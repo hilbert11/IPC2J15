@@ -89,7 +89,8 @@
         <asp:TextBox ID="TextBox3" runat="server" Visible="False"></asp:TextBox>
 &nbsp;<asp:TextBox ID="TextBox4" runat="server" Visible="False"></asp:TextBox>
 &nbsp;<asp:TextBox ID="TextBox5" runat="server" Visible="False"></asp:TextBox>
-&nbsp;<br />
+&nbsp;<asp:Label ID="lblUsuario" runat="server"></asp:Label>
+        <br />
 
         <asp:Label ID="Label9" runat="server" Font-Names="Calisto MT" Font-Overline="True" Font-Size="Large" Text="No: Casilla"></asp:Label>
         <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox1_TextChanged" Width="187px" Style="height: 19px"></asp:TextBox>
