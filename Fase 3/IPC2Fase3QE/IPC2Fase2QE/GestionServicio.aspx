@@ -70,8 +70,11 @@
                 <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
                 <asp:BoundField DataField="Stock" HeaderText="Stock" SortExpression="Stock" />
                 <asp:BoundField DataField="Cod_Cliente" HeaderText="Cod_Cliente" SortExpression="Cod_Cliente" />
-                <asp:BoundField DataField="Cod_Lote" HeaderText="Cod_Lote" SortExpression="Cod_Lote" Visible="False" />
+                <asp:BoundField DataField="Cod_Lote" HeaderText="Cod_Lote" SortExpression="Cod_Lote" />
                 <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
+                <asp:BoundField DataField="Cod_Impuesto" HeaderText="Cod_Impuesto" SortExpression="Cod_Impuesto" />
+                <asp:BoundField DataField="EstadoModificacion" HeaderText="EstadoModificacion" SortExpression="EstadoModificacion" />
+                <asp:BoundField DataField="Cod_sucursal" HeaderText="Cod_sucursal" SortExpression="Cod_sucursal" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -90,6 +93,7 @@
 &nbsp;<asp:TextBox ID="TextBox4" runat="server" Visible="False"></asp:TextBox>
 &nbsp;<asp:TextBox ID="TextBox5" runat="server" Visible="False"></asp:TextBox>
 &nbsp;<asp:Label ID="lblUsuario" runat="server"></asp:Label>
+        <asp:TextBox ID="txtFecha" runat="server" Visible="False"></asp:TextBox>
         <br />
 
         <asp:Label ID="Label9" runat="server" Font-Names="Calisto MT" Font-Overline="True" Font-Size="Large" Text="No: Casilla"></asp:Label>

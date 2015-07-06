@@ -75,8 +75,8 @@
         </p>
         <p style="height: 59px">
 
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Button" />
+            <asp:TextBox ID="TextBox4" runat="server" Visible="False"></asp:TextBox>
+            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Button" Visible="False" />
 
         </p>
         <p style="height: 156px">

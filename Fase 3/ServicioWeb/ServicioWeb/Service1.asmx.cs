@@ -1222,7 +1222,12 @@ namespace ServicioWeb
         }
         return nombre;
     }
-
+        //Retor fecha
+        [WebMethod]
+        public string RetornarFecha(string fecha)
+        {
+            return DateTime.Now.ToString();
+        }
         
     }
 }

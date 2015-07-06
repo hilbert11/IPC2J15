@@ -97,6 +97,8 @@ namespace IPC2Fase3QE.ServicioReferencia {
         
         private System.Threading.SendOrPostCallback getEstadoEmpleadoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback RetornarFechaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -236,6 +238,9 @@ namespace IPC2Fase3QE.ServicioReferencia {
         
         /// <remarks/>
         public event getEstadoEmpleadoCompletedEventHandler getEstadoEmpleadoCompleted;
+        
+        /// <remarks/>
+        public event RetornarFechaCompletedEventHandler RetornarFechaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/conectarServidor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1250,6 +1255,35 @@ namespace IPC2Fase3QE.ServicioReferencia {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetornarFecha", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RetornarFecha(string fecha) {
+            object[] results = this.Invoke("RetornarFecha", new object[] {
+                        fecha});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RetornarFechaAsync(string fecha) {
+            this.RetornarFechaAsync(fecha, null);
+        }
+        
+        /// <remarks/>
+        public void RetornarFechaAsync(string fecha, object userState) {
+            if ((this.RetornarFechaOperationCompleted == null)) {
+                this.RetornarFechaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRetornarFechaOperationCompleted);
+            }
+            this.InvokeAsync("RetornarFecha", new object[] {
+                        fecha}, this.RetornarFechaOperationCompleted, userState);
+        }
+        
+        private void OnRetornarFechaOperationCompleted(object arg) {
+            if ((this.RetornarFechaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RetornarFechaCompleted(this, new RetornarFechaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -2139,6 +2173,32 @@ namespace IPC2Fase3QE.ServicioReferencia {
         private object[] results;
         
         internal getEstadoEmpleadoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void RetornarFechaCompletedEventHandler(object sender, RetornarFechaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RetornarFechaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RetornarFechaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

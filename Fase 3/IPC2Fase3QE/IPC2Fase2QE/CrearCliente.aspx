@@ -74,7 +74,7 @@
 
         <div>
 
-            <asp:Button ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click" CssClass="btn btn-default" />
 
         </div>
 

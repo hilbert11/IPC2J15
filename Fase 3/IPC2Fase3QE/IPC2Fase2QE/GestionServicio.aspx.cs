@@ -18,7 +18,9 @@ namespace IPC2Fase3QE
         ServicioReferencia.Service1 conexion = new ServicioReferencia.Service1();
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = Session["CodCliente"].ToString();
+            //string mostrarfecha = txtFecha.Text;
+            //lblUsuario.Text = Session["CodCliente"].ToString();
+            txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
         }
 
@@ -27,7 +29,8 @@ namespace IPC2Fase3QE
         protected void Button1_Click(object sender, EventArgs e)
         {
             int casilla;
-            casilla = Convert.ToInt32(conexion.getCasillaClienteMax() + 1);
+
+            casilla = Convert.ToInt32(conexion.getCasillaClienteMax()) + 1;
             if (conexion.ModificarCasillaCliente(Convert.ToInt32(DropDownList1.SelectedValue), casilla.ToString()))
             {
                 MessageBox.Show("Se ha aceptado al cliente :3");
@@ -96,27 +99,27 @@ namespace IPC2Fase3QE
 
             //////////////////////////////////////Sacando info del paquete
 
-            int codPaquete;
+            //int codPaquete;
 
-            SqlConnection con22 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
-            String instruccion = "Select * from Paquete where Cod_Paquete='" + lblUsuario.Text + "' ";
-            SqlCommand comando2 = new SqlCommand(instruccion, con22);
-            con22.Open();
-            SqlDataReader leer2 = comando1.ExecuteReader();
-            if (leer2.Read() == true)
-            {
+            //SqlConnection con22 = new SqlConnection("Data Source=HILBERT\\SQL2012;Initial Catalog=ProyectoQE;Integrated Security=True");
+            //String instruccion = "Select * from Paquete where Cod_Paquete='" + lblUsuario.Text + "' ";
+            //SqlCommand comando2 = new SqlCommand(instruccion, con22);
+            //con22.Open();
+            //SqlDataReader leer2 = comando1.ExecuteReader();
+            //if (leer2.Read() == true)
+            //{
 
-                codPaquete = Convert.ToInt32(leer1["Cod_Paquete"]);
-                lblUsuario.Text = Convert.ToInt32(codPaquete).ToString();
+            //    codPaquete = Convert.ToInt32(leer1["Cod_Paquete"]);
+            //    lblUsuario.Text = Convert.ToInt32(codPaquete).ToString();
 
 
 
-            }
-            else
-            {
-                MessageBox.Show("Error D:");
-            }
-            con22.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error D:");
+            //}
+            //con22.Close();
 
         }
 
@@ -136,6 +139,7 @@ namespace IPC2Fase3QE
             pdfDoc.Open();
             string strContent = cadenaFinal;
             pdfDoc.Add(new Paragraph("                                         FACTURA       No. 001"));
+            pdfDoc.Add(new Paragraph("                                         Con Fecha:" + txtFecha.Text));
             pdfDoc.Add(new Paragraph("                                                              "));
             pdfDoc.Add(new Paragraph("                                                              "));
             pdfDoc.Add(new Paragraph("                                                              "));

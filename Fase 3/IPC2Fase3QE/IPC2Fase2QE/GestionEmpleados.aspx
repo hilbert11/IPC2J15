@@ -373,7 +373,7 @@
         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource5" DataTextField="Cod_Empleado" DataValueField="Cod_Empleado" Height="25px" Width="178px">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoQEConnectionString %>" SelectCommand="SELECT * FROM [Empleados]"></asp:SqlDataSource>
-                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" CssClass="btn btn-success" />
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="DESPEDIR" CssClass="btn btn-success" />
 
     </div>
     <div>

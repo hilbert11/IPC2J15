@@ -38,6 +38,8 @@ namespace IPC2Fase3QE
             GridView1.Visible = false;
             GridView2.Visible = false;
             GridView3.Visible = false;
+            TextBox4.Visible = false;
+            Button7.Visible = false;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -115,6 +117,8 @@ namespace IPC2Fase3QE
             {
                 GridView1.Visible = true;
                 GridView3.Visible = true;
+                TextBox4.Visible = true;
+                Button7.Visible = true;
             }
             Label1.Visible = false;
             Label2.Visible = false;
@@ -126,6 +130,7 @@ namespace IPC2Fase3QE
             DropCategoria.Visible = false;
             txttotal.Visible = false;
             GridView2.Visible = false;
+
 
         }
 
@@ -141,6 +146,8 @@ namespace IPC2Fase3QE
             DropCategoria.Visible = false;
             txttotal.Visible = false;
             GridView2.Visible = true;
+            TextBox4.Visible = false;
+            Button7.Visible = false;
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

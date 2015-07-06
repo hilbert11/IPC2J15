@@ -485,6 +485,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RetornarFecha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarFechaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarFechaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="conectarServidorSoapIn">
@@ -691,6 +705,12 @@
   <wsdl:message name="getEstadoEmpleadoSoapOut">
     <wsdl:part name="parameters" element="tns:getEstadoEmpleadoResponse" />
   </wsdl:message>
+  <wsdl:message name="RetornarFechaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarFecha" />
+  </wsdl:message>
+  <wsdl:message name="RetornarFechaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarFechaResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="conectarServidor">
       <wsdl:input message="tns:conectarServidorSoapIn" />
@@ -827,6 +847,10 @@
     <wsdl:operation name="getEstadoEmpleado">
       <wsdl:input message="tns:getEstadoEmpleadoSoapIn" />
       <wsdl:output message="tns:getEstadoEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFecha">
+      <wsdl:input message="tns:RetornarFechaSoapIn" />
+      <wsdl:output message="tns:RetornarFechaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
@@ -1137,6 +1161,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RetornarFecha">
+      <soap:operation soapAction="http://tempuri.org/RetornarFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1439,6 +1472,15 @@
     </wsdl:operation>
     <wsdl:operation name="getEstadoEmpleado">
       <soap12:operation soapAction="http://tempuri.org/getEstadoEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarFecha">
+      <soap12:operation soapAction="http://tempuri.org/RetornarFecha" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
