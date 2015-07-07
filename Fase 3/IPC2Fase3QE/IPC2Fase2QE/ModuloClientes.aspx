@@ -81,8 +81,8 @@
         </p>
         <p style="height: 156px">
 
-            <asp:FileUpload ID="FileUpload1" runat="server" Visible="False" />
-            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Aceptar" Visible="False" />
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Aceptar" />
             <asp:Label ID="lblink" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="Label5" runat="server" Visible="False"></asp:Label>
 
